@@ -53,6 +53,7 @@ const mercatsData = [
 export const MapMarkets = () => {
   const [coordinates] = useState([41.3919, 2.1649]);
   const [markerDetailCard, setMarkerDetailCard] = useState({ isOpen: false });
+  const [selectedMarker, setSelectedMarker] = useState(null)
 
   const handleMarkerClick = (marker) => {
     console.log("Marker clicked:", marker.name);
@@ -61,6 +62,10 @@ export const MapMarkets = () => {
       selectedMarker: marker,
     });
   };
+  const handleCloseDetailCard = () => {
+    setMarkerDetailCard({ isOpen: false, selectedMarker: null });
+  };
+
   return (
     <div style={{ margin: "50px" }}>
       <MapContainer
@@ -77,7 +82,7 @@ export const MapMarkets = () => {
             <Marker
               position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
               eventHandlers={{
-                click: () => handleMarkerClick(marker), // Register click event here
+                click: () => handleMarkerClick(marker),
               }}
             />
             {markerDetailCard.isOpen &&
@@ -90,6 +95,7 @@ export const MapMarkets = () => {
                   address={marker.adress}
                   creationDate={marker.date_creation}
                   link={marker.schedule}
+                  onClose={handleCloseDetailCard}
                 />
               )}
           </React.Fragment>

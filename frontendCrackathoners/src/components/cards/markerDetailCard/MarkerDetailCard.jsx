@@ -1,35 +1,38 @@
 import React from "react";
-import { Container, TitleCardText, CardText } from "./MarkerDetailCardStyled";
+import { Container, TitleCardText, CardText, CloseButtonContainer } from "./MarkerDetailCardStyled";
 
-const MarkerDetailCard = ({isOpen, category, name, district, address, creationDate, link}) => {
+const MarkerDetailCard = ({ isOpen, category, name, district, address, creationDate, link, onClose }) => {
 
   if (!isOpen) return null;
 
   return (
     <Container>
+      <CloseButtonContainer onClick={onClose}>
+        <span style={{ color: 'white', cursor: 'pointer' }}>✖</span>
+      </CloseButtonContainer>
       <TitleCardText>
-      Categoria:
-        <CardText>mercat setmanal {category} </CardText>
+        Categoria:
+        <CardText> {category} </CardText>
       </TitleCardText>
       <TitleCardText>
         Nom:
-        <CardText>Mercat de Sant Gervasi {name} </CardText>
+        <CardText> {name} </CardText>
       </TitleCardText>
       <TitleCardText>
         Barri:
-        <CardText>Sant Gervasi {district} </CardText>
+        <CardText>{district} </CardText>
       </TitleCardText>
       <TitleCardText>
-      Adreça:
-        <CardText>Sant Gervasi {address} </CardText>
+        Adreça:
+        <CardText> {address} </CardText>
       </TitleCardText>
       <TitleCardText>
-      Creació:
-        <CardText>1989 {creationDate} </CardText>
+        Creació:
+        <CardText> {creationDate} </CardText>
       </TitleCardText>
       <TitleCardText>
-      Consulta horari:
-        <CardText>link {link}</CardText>
+        Consulta horari:
+        <CardText> {link}</CardText>
       </TitleCardText>
     </Container>
   );
