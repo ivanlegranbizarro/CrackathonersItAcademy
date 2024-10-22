@@ -30,7 +30,7 @@ export const Icon = styled.img`
 
 export const SearchForm = styled.form`
     position: fixed;
-    z-index: 800;
+    z-index: 1100;
     margin-bottom: 15px;
     bottom: 0;
     left: 0;
@@ -77,4 +77,5 @@ export const InputContainer = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--col-white-green);
+    cursor: pointer;
 `;

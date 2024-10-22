@@ -2,7 +2,12 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import React from "react";
 import MarkerDetailCard from "../cards/markerDetailCard/MarkerDetailCard";
-import { MapContainerStyled, TextStyle, MapSection, MainMapSection } from "./MapMarketsStyled"; 
+import {
+  MapContainerStyled,
+  TextStyle,
+  MapSection,
+  MainMapSection,
+} from "./MapMarketsStyled";
 
 import L from "leaflet";
 import defaultIconUrl from "../../assets/images/geo-location-icon.svg";
@@ -56,7 +61,6 @@ const mercatsData = [
   },
 ];
 
-
 const defaultIcon = L.icon({
   iconUrl: defaultIconUrl,
   iconSize: [65, 81],
@@ -84,55 +88,53 @@ export const MapMarkets = () => {
   };
   const handleCloseDetailCard = () => {
     setMarkerDetailCard({ isOpen: false, selectedMarker: null });
+    setSelectedMarker(null);
   };
 
   return (
     <MainMapSection>
-    <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
-    <MapContainerStyled>
-      
-      <MapSection>
-      <MapContainer
-        center={coordinates}
-        zoom={13}
-        style={{ height: "100vh", width: "100%" }}
-      >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
-        {mercatsData.map((marker) => (
-          <React.Fragment key={marker.id}>
-            <Marker
-              position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
-              icon={selectedMarker === marker ? selectedIcon : defaultIcon}
-              eventHandlers={{
-                click: () => handleMarkerClick(marker),
-              }}
+      <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
+      <MapContainerStyled>
+        <MapSection>
+          <MapContainer
+            center={coordinates}
+            zoom={11}
+            style={{ height: "65vh", width: "100%" }}
+          >
+            <TileLayer
+              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+              attribution="&copy; OpenStreetMap contributors"
             />
-            
-          </React.Fragment>
-        ))}
-      </MapContainer>
-
-
-      </MapSection>
-
-      {markerDetailCard.isOpen &&
-              (
-                <MarkerDetailCard
-                isOpen={markerDetailCard.isOpen}
-                category={markerDetailCard.selectedMarker.type}
-                name={markerDetailCard.selectedMarker.name}
-                district={markerDetailCard.selectedMarker.district}
-                address={markerDetailCard.selectedMarker.adress}
-                creationDate={markerDetailCard.selectedMarker.date_creation}
-                link={markerDetailCard.selectedMarker.schedule}
-                onClose={handleCloseDetailCard}
+            {mercatsData.map((marker) => (
+              <React.Fragment key={marker.id}>
+                <Marker
+                  position={[
+                    Number(marker.coord_lat),
+                    Number(marker.coord_lon),
+                  ]}
+                  icon={selectedMarker === marker ? selectedIcon : defaultIcon}
+                  eventHandlers={{
+                    click: () => handleMarkerClick(marker),
+                  }}
                 />
-      )}
-      
-    </MapContainerStyled>
+              </React.Fragment>
+            ))}
+          </MapContainer>
+        </MapSection>
+
+        {markerDetailCard.isOpen && (
+          <MarkerDetailCard
+            isOpen={markerDetailCard.isOpen}
+            category={markerDetailCard.selectedMarker.type}
+            name={markerDetailCard.selectedMarker.name}
+            district={markerDetailCard.selectedMarker.district}
+            address={markerDetailCard.selectedMarker.adress}
+            creationDate={markerDetailCard.selectedMarker.date_creation}
+            link={markerDetailCard.selectedMarker.schedule}
+            onClose={handleCloseDetailCard}
+          />
+        )}
+      </MapContainerStyled>
     </MainMapSection>
   );
 };
