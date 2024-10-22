@@ -1,5 +1,5 @@
 :root {
-  font-family: "Marianina FY Regular";
+  font-family: 'Poppins', sans-serif;
   width: 100vw;
   height: auto;
   --violet: #532D6D;
@@ -10,4 +10,5 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
