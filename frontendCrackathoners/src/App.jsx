@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import styled from "styled-components";
-import './App.css'
+import Navbar from './components/navbar/Navbar'
+
 
 function App() {
 
   return (
     <>
+    <Navbar/>
       <h1>Hello World!</h1>
     </>
   )
