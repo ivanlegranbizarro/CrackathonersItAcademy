@@ -32,6 +32,7 @@ function App() {
         display: flex;
         flex-wrap: wrap;
         gap: 32px;
+        padding: 20px;
     `;
 
     const DivCards = styled.div`

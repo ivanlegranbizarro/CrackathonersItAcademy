@@ -48,7 +48,7 @@ function SearchBar({isMap,setIsMap,query,setQuery}) {
                 <InputContainer>
                     <Icon
                         onClick={toggleView}
-                        src={isMap ? mapIcon : listIcon}
+                        src={isMap ? listIcon : mapIcon}
                         alt=""
                     />
                 </InputContainer>

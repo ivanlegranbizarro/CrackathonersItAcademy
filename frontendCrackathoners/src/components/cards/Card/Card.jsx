@@ -7,7 +7,7 @@ import fair from'../../../assets/images/fair.png'
 
 
 const CardContainer = styled.section`
-  border: 2px solid black;
+  border: 1px solid #ddd;
   border-radius: 15px;
   overflow: hidden; 
   position: relative;

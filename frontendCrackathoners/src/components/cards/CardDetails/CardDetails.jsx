@@ -23,7 +23,7 @@ const BlurBackground = styled.div`
 `;
 
 const CardDetailsSection = styled.section`
-    border: 2px solid black;
+    border: 1px solid #ccc;
     border-radius: 15px;
     overflow: auto;
     position: relative;
