@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState, useEffect } from "react";
 
-const feriasData = [
+const marcatsData = [
   { id: 1, name: "Feria de Abril", coordinates: [37.3891, -5.9934] }, // Sevilla
   { id: 2, name: "Feria de San Isidro", coordinates: [40.4170, -3.7038] }, // Madrid
   { id: 3, name: "Feria de Málaga", coordinates: [36.7213, -4.4214] }, // Málaga
@@ -9,18 +9,18 @@ const feriasData = [
 ];
 
 
-export const MapLocal = ({selectedFeria}) => {
+export const MapLocal = ({selectedMercat}) => {
   const [coordinatesX, setCoordinatesX] = useState(37.3891);
   const [coordinatesY, setCoordinatesY] = useState(-5.9934);
   const coordinates = [coordinatesX, coordinatesY];
 
 
   useEffect(() => {
-    if (selectedFeria) {
+    if (selectedMercat) {
       setCoordinatesX(coordinatesX)
       setCoordinatesY(coordinatesY)
     }
-  }, [selectedFeria]);
+  }, [selectedMercat]);
 
 
   return (
