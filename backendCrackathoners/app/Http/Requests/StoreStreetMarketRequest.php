@@ -30,11 +30,11 @@ class StoreStreetMarketRequest extends FormRequest
             'district' => ['required', 'string', 'max:255'],
             'zip_code' => ['required', 'string', 'max:255'],
             'town' => ['required', 'string', 'max:255'],
-            'coord_x' => ['required', 'integer', 'max:255'],
-            'coord_y' => ['required', 'integer', 'max:255'],
+            'coord_lat' => ['required', 'string', 'max:255'],
+            'coord_lon' => ['required', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:255'],
             'schedule' => ['nullable', 'url', 'max:255'],
-            'type' => ['required', 'enum:market,fair'],
+            'type' => ['required', 'string', 'in:market,fair'],
         ];
     }
 }
