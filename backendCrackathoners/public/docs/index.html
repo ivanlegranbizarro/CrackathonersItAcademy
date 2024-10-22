@@ -74,8 +74,14 @@
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-street_market">
                                 <a href="#endpoints-GETapi-street_market">Obtiene una lista de todos los mercados callejeros.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-street_market">
+                                <a href="#endpoints-POSTapi-street_market">Almacena un nuevo mercado callejero en la base de datos.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-street_market--id-">
                                 <a href="#endpoints-GETapi-street_market--id-">Muestra un mercado callejero específico.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-street_market-import">
+                                <a href="#endpoints-POSTapi-street_market-import">Importa datos de mercados callejeros desde un archivo JSON.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -123,7 +129,11 @@ Ejemplo de respuesta:
 { &quot;id&quot;: 1, &quot;name&quot;: &quot;Mercado Central&quot;, &quot;address&quot;: &quot;Av. Principal 123&quot;, ... },
 { &quot;id&quot;: 2, &quot;name&quot;: &quot;Feria de Artesanos&quot;, &quot;address&quot;: &quot;Calle Secundaria 456&quot;, ... }
 ]</li>
-<li>500: Si ocurre un error interno en el servidor al recuperar los datos.</li>
+<li>500: Si ocurre un error interno en el servidor al recuperar los datos.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Error interno del servidor.&quot;
+}</li>
 </ul>
 
 <span id="example-requests-GETapi-street_market">
@@ -164,10 +174,1541 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: *
+vary: Origin
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;">[]</code>
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Mercat setmanal de  Proven&ccedil;als&quot;,
+        &quot;date_creation&quot;: &quot;1998-07-06&quot;,
+        &quot;address&quot;: &quot;C Menorca&quot;,
+        &quot;address_number&quot;: &quot;19&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Mart&iacute; de Proven&ccedil;als&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08072&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4194585189&quot;,
+        &quot;coord_lon&quot;: &quot;2.1964867232&quot;,
+        &quot;phone&quot;: &quot;932916000&quot;,
+        &quot;schedule&quot;: null,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Mercat G&ograve;tic Antiguitats *Pla&ccedil;a Nova&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-01&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a Nova&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3838077418&quot;,
+        &quot;coord_lon&quot;: &quot;2.1753483281&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-gotic-antiguitats-placa-nova_96092125659&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;Fira del Col&middot;lectiu d&#039;Artesans d&#039;Alimentaci&oacute; *Pla&ccedil;a del Pi&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-01&quot;,
+        &quot;address&quot;: &quot;Pl Pi&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3823267168&quot;,
+        &quot;coord_lon&quot;: &quot;2.1735761303&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-collectiu-d-artesans-d-alimentacio-placa-del-pi_99400686952.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;Mostra d&#039;Art *Pla&ccedil;a de Sarri&agrave;&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-02&quot;,
+        &quot;address&quot;: &quot;Pl Sarri&agrave;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sarri&agrave;&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08023&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4001453287&quot;,
+        &quot;coord_lon&quot;: &quot;2.1223833128&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-d-art-placa-de-sarria_99400159418.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;name&quot;: &quot;Fira d&#039;Artesania Rosa de Maig&quot;,
+        &quot;date_creation&quot;: &quot;1997-12-19&quot;,
+        &quot;address&quot;: &quot;Pl Comer&ccedil;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Andreu&quot;,
+        &quot;district&quot;: &quot;Sant Andreu&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4355661983&quot;,
+        &quot;coord_lon&quot;: &quot;2.1898445896&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/fira-d-artesania-rosa-de-maig_99400478617.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;Petit Mercat de Zona Nord&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;Carrer de Vallcivera&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Ciutat Meridiana&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08055&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4616720373&quot;,
+        &quot;coord_lon&quot;: &quot;2.1795141774&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/es/detall/petit-mercat-zona-nord_99400256451.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;Petit Mercat de Trinitat Nova&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;Chafarinas&quot;,
+        &quot;address_number&quot;: &quot;21&quot;,
+        &quot;neighborhood&quot;: &quot;la Trinitat Nova&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08053&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4484286607&quot;,
+        &quot;coord_lon&quot;: &quot;2.1834930021&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/es/detall/petit-mercat-trinitat-nova_99400256452.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;name&quot;: &quot;Mercat del Vell *Estaci&oacute; de Sants&quot;,
+        &quot;date_creation&quot;: &quot;1997-10-21&quot;,
+        &quot;address&quot;: &quot;Pl Pa&iuml;sos Catalans&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sants&quot;,
+        &quot;district&quot;: &quot;Sants-Montju&iuml;c&quot;,
+        &quot;zip_code&quot;: &quot;08018&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3790331169&quot;,
+        &quot;coord_lon&quot;: &quot;2.1404324382&quot;,
+        &quot;phone&quot;: &quot;934956401&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-del-vell-estacio-de-sants_99400556374.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;name&quot;: &quot;Petit Mercat de Canyelles&quot;,
+        &quot;date_creation&quot;: &quot;1996-12-18&quot;,
+        &quot;address&quot;: &quot;Carrer d&#039;Antonio Machado&quot;,
+        &quot;address_number&quot;: &quot;12&quot;,
+        &quot;neighborhood&quot;: &quot;Canyelles&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08049&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4428163931&quot;,
+        &quot;coord_lon&quot;: &quot;2.1662470301&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://www.barcelona.cat/casalsdebarri/verdun/es/detail/petit-mercat-de-canyelles_96353173651&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;name&quot;: &quot;Fira de Llibre Vell *Pla&ccedil;a de Sarri&agrave;&quot;,
+        &quot;date_creation&quot;: &quot;1997-04-04&quot;,
+        &quot;address&quot;: &quot;Pl Sarri&agrave;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sarri&agrave;&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08023&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4001453287&quot;,
+        &quot;coord_lon&quot;: &quot;2.1223833128&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/ca/detall/fira-del-llibre-vell-a-la-placa-de-sarria_99400322558.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 11,
+        &quot;name&quot;: &quot;Mostra de Pintors, Caricaturistes i Retratistes de les Rambles&quot;,
+        &quot;date_creation&quot;: &quot;2003-11-11&quot;,
+        &quot;address&quot;: &quot;C la Rambla&quot;,
+        &quot;address_number&quot;: &quot;25&quot;,
+        &quot;neighborhood&quot;: &quot;el Raval&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3784426403&quot;,
+        &quot;coord_lon&quot;: &quot;2.1754345236&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-de-pintors-caricaturistes-i-retratistes_99400686938.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 12,
+        &quot;name&quot;: &quot;Fira Nova Artesania *Rambles&quot;,
+        &quot;date_creation&quot;: &quot;1995-07-10&quot;,
+        &quot;address&quot;: &quot;C la Rambla&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Raval&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.376588493&quot;,
+        &quot;coord_lon&quot;: &quot;2.1762969828&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesania_99400686927.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 13,
+        &quot;name&quot;: &quot;Fira d&#039;Embotits Artesanals *Pla&ccedil;a de Sarri&agrave;&quot;,
+        &quot;date_creation&quot;: &quot;2008-09-22&quot;,
+        &quot;address&quot;: &quot;Pl Sarri&agrave;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sarri&agrave;&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08023&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4001453287&quot;,
+        &quot;coord_lon&quot;: &quot;2.1223833128&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-embotits-artesanals_99400159424.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 14,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans Pla&ccedil;a Sant Agust&iacute; Vell&quot;,
+        &quot;date_creation&quot;: &quot;2003-02-25&quot;,
+        &quot;address&quot;: &quot;Pl Sant Agust&iacute; Vell&quot;,
+        &quot;address_number&quot;: &quot;2&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Pere, Santa Caterina i la Ribera&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08040&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3876876274&quot;,
+        &quot;coord_lon&quot;: &quot;2.1804565857&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans_99400256431.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans Nou Barris&quot;,
+        &quot;date_creation&quot;: &quot;1998-04-06&quot;,
+        &quot;address&quot;: &quot;Pg Valldaura&quot;,
+        &quot;address_number&quot;: &quot;186&quot;,
+        &quot;neighborhood&quot;: &quot;la Guineueta&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08048&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.438652556&quot;,
+        &quot;coord_lon&quot;: &quot;2.1702455769&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-nou-barris_98096114839.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 16,
+        &quot;name&quot;: &quot;Fira Espai d&#039;Art  *Av Diagonal&quot;,
+        &quot;date_creation&quot;: &quot;2015-03-26&quot;,
+        &quot;address&quot;: &quot;Avinguda Diagonal&quot;,
+        &quot;address_number&quot;: &quot;593&quot;,
+        &quot;neighborhood&quot;: &quot;les Corts&quot;,
+        &quot;district&quot;: &quot;Les Corts&quot;,
+        &quot;zip_code&quot;: &quot;08019&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.388802367&quot;,
+        &quot;coord_lon&quot;: &quot;2.1309090704&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: null,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 17,
+        &quot;name&quot;: &quot;Mercat Setmanal del Bes&ograve;s&quot;,
+        &quot;date_creation&quot;: &quot;1998-06-09&quot;,
+        &quot;address&quot;: &quot;C Jaume Huguet&quot;,
+        &quot;address_number&quot;: &quot;38&quot;,
+        &quot;neighborhood&quot;: &quot;el Bes&ograve;s i el Maresme&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08070&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4192321675&quot;,
+        &quot;coord_lon&quot;: &quot;2.2151291359&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://www.mercatsetmanal.cat&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 18,
+        &quot;name&quot;: &quot;Mercat setmanal de la Marina-Zona Franca&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;Carrer de la Mare de D&eacute;u de Port&quot;,
+        &quot;address_number&quot;: &quot;115&quot;,
+        &quot;neighborhood&quot;: &quot;la Marina del Prat Vermell&quot;,
+        &quot;district&quot;: &quot;Sants-Montju&iuml;c&quot;,
+        &quot;zip_code&quot;: &quot;08012&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.353298836&quot;,
+        &quot;coord_lon&quot;: &quot;2.1496265694&quot;,
+        &quot;phone&quot;: &quot;932914256&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/sants-montjuic/es/el-distrito-y-sus-barrios/sants-badal/agenda/mercat-setmanal-de-la-marina-zona-franca_99400322547&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 19,
+        &quot;name&quot;: &quot;Mercat de Numism&agrave;tica i Filat&egrave;lia *Pla&ccedil;a Reial&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;Pl Reial&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3800500367&quot;,
+        &quot;coord_lon&quot;: &quot;2.1748931265&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-numismatica-i-filatelia_99400478611.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 20,
+        &quot;name&quot;: &quot;Mercat Encants de Sant Antoni&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;C Comte d&#039;Urgell&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Antoni&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3813015469&quot;,
+        &quot;coord_lon&quot;: &quot;2.1634511872&quot;,
+        &quot;phone&quot;: &quot;934132300&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 21,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans Moll de Dip&ograve;sit&quot;,
+        &quot;date_creation&quot;: &quot;2006-07-14&quot;,
+        &quot;address&quot;: &quot;Pl Pau Vila&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;la Barceloneta&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08030&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3810655372&quot;,
+        &quot;coord_lon&quot;: &quot;2.1845353247&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-al-moll-del-diposit-palau-de-mar_99400322607.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 22,
+        &quot;name&quot;: &quot;Mercat Encants Barcelona - Fira de Bellcaire&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de los Castillejos&quot;,
+        &quot;address_number&quot;: &quot;158&quot;,
+        &quot;neighborhood&quot;: &quot;el Fort Pienc&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08050&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4010635488&quot;,
+        &quot;coord_lon&quot;: &quot;2.185669246&quot;,
+        &quot;phone&quot;: &quot;934132328&quot;,
+        &quot;schedule&quot;: &quot;https://encantsbarcelona.com/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 23,
+        &quot;name&quot;: &quot;Mercat de Pins *Pg Llu&iacute;s Companys&quot;,
+        &quot;date_creation&quot;: &quot;1995-07-10&quot;,
+        &quot;address&quot;: &quot;Pg Llu&iacute;s Companys&quot;,
+        &quot;address_number&quot;: &quot;7&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Pere, Santa Caterina i la Ribera&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08040&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3901017354&quot;,
+        &quot;coord_lon&quot;: &quot;2.1809868387&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-pins-pg-lluis-companys_99400256472.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 24,
+        &quot;name&quot;: &quot;Mercat de les Flors *Les Rambles&quot;,
+        &quot;date_creation&quot;: &quot;1985-03-22&quot;,
+        &quot;address&quot;: &quot;C la Rambla&quot;,
+        &quot;address_number&quot;: &quot;116&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3829864542&quot;,
+        &quot;coord_lon&quot;: &quot;2.1719482423&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 25,
+        &quot;name&quot;: &quot;Fira del Llibre i Filat&egrave;lia de Nou Barris&quot;,
+        &quot;date_creation&quot;: &quot;2000-09-22&quot;,
+        &quot;address&quot;: &quot;Pg Valldaura&quot;,
+        &quot;address_number&quot;: &quot;186&quot;,
+        &quot;neighborhood&quot;: &quot;la Guineueta&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08048&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.438652556&quot;,
+        &quot;coord_lon&quot;: &quot;2.1702455769&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-llibre-i-filatelia-de-nou-barris_99400322524.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 26,
+        &quot;name&quot;: &quot;Mercat Dominical de Sant Antoni&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;C Comte d&#039;Urgell&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Antoni&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3795682194&quot;,
+        &quot;coord_lon&quot;: &quot;2.1617431158&quot;,
+        &quot;phone&quot;: &quot;934132300&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 27,
+        &quot;name&quot;: &quot;Fira Petit Artes&agrave; *Pla&ccedil;a Bonanova&quot;,
+        &quot;date_creation&quot;: &quot;2008-09-22&quot;,
+        &quot;address&quot;: &quot;Pl Bonanova&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Gervasi - la Bonanova&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08025&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4069745432&quot;,
+        &quot;coord_lon&quot;: &quot;2.1335393252&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-petit-artesa-a-la-placa-bonanova_99400322611.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 28,
+        &quot;name&quot;: &quot;Fira de Brocanters *Pla&ccedil;a Frederic Soler&quot;,
+        &quot;date_creation&quot;: &quot;2008-09-22&quot;,
+        &quot;address&quot;: &quot;Pl Frederic Soler&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Gervasi - la Bonanova&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08025&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4053118488&quot;,
+        &quot;coord_lon&quot;: &quot;2.1382352467&quot;,
+        &quot;phone&quot;: &quot;933171996&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-de-brocanters-a-la-placa-frederic-soler_99400322609.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 29,
+        &quot;name&quot;: &quot;Mercat de Pintors de Sant Andreu&quot;,
+        &quot;date_creation&quot;: &quot;2006-01-16&quot;,
+        &quot;address&quot;: &quot;Pl Comer&ccedil;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Andreu&quot;,
+        &quot;district&quot;: &quot;Sant Andreu&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4355662066&quot;,
+        &quot;coord_lon&quot;: &quot;2.1898444937&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-pintors-de-sant-andreu_99400322600.html&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 30,
+        &quot;name&quot;: &quot;Fira del Col&middot;leccionisme de la Zona Nord&quot;,
+        &quot;date_creation&quot;: &quot;2007-02-05&quot;,
+        &quot;address&quot;: &quot;Av Rasos de Peguera&quot;,
+        &quot;address_number&quot;: &quot;27&quot;,
+        &quot;neighborhood&quot;: &quot;Ciutat Meridiana&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08055&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4615054827&quot;,
+        &quot;coord_lon&quot;: &quot;2.1789793052&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-col-leccionisme-de-la-zona-nord_99400321443.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 31,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans de la Terra *Pla&ccedil;a Conc&ograve;rdia&quot;,
+        &quot;date_creation&quot;: &quot;2015-03-26&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a de la Conc&ograve;rdia&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;les Corts&quot;,
+        &quot;district&quot;: &quot;Les Corts&quot;,
+        &quot;zip_code&quot;: &quot;08019&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3868917091&quot;,
+        &quot;coord_lon&quot;: &quot;2.1320973475&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/en/cursos/detall/fira-d-artesans-de-la-terra-placa-concordia_99400381335.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 32,
+        &quot;name&quot;: &quot;Fira de Menjar Artesanal  La Dama d&#039;Or *Jardins de Can Bruixa&quot;,
+        &quot;date_creation&quot;: &quot;2015-03-26&quot;,
+        &quot;address&quot;: &quot;Jardins de Can Bruixa&quot;,
+        &quot;address_number&quot;: &quot;0&quot;,
+        &quot;neighborhood&quot;: &quot;les Corts&quot;,
+        &quot;district&quot;: &quot;Les Corts&quot;,
+        &quot;zip_code&quot;: &quot;08019&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.383619901&quot;,
+        &quot;coord_lon&quot;: &quot;2.1305497406&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: null,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 33,
+        &quot;name&quot;: &quot;Fira Tradicional de Productes Naturals de la Pla&ccedil;a Sagrada Fam&iacute;lia&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-02&quot;,
+        &quot;address&quot;: &quot;Av Gaud&iacute;&quot;,
+        &quot;address_number&quot;: &quot;2&quot;,
+        &quot;neighborhood&quot;: &quot;la Sagrada Fam&iacute;lia&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4049393558&quot;,
+        &quot;coord_lon&quot;: &quot;2.1746018037&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-tradicional-de-productes-naturals-de-la-placa-sagrada-familia_99400300064.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 34,
+        &quot;name&quot;: &quot;Fira de Brocanters *Pla&ccedil;a de Sarri&agrave;&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-02&quot;,
+        &quot;address&quot;: &quot;Pl Sarri&agrave;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sarri&agrave;&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08023&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4001453287&quot;,
+        &quot;coord_lon&quot;: &quot;2.1223833128&quot;,
+        &quot;phone&quot;: &quot;933171996&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/en/directoris/detall/fira-de-brocanters-a-la-placa-de-sarria_99400322555.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 35,
+        &quot;name&quot;: &quot;Mercat d&#039;Art Directe *Jardins de Campoamor&quot;,
+        &quot;date_creation&quot;: &quot;2002-09-10&quot;,
+        &quot;address&quot;: &quot;Av Diagonal&quot;,
+        &quot;address_number&quot;: &quot;615&quot;,
+        &quot;neighborhood&quot;: &quot;les Corts&quot;,
+        &quot;district&quot;: &quot;Les Corts&quot;,
+        &quot;zip_code&quot;: &quot;08019&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3882699032&quot;,
+        &quot;coord_lon&quot;: &quot;2.1287823998&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 36,
+        &quot;name&quot;: &quot;Fira Brocanters *Moll de les Drassanes&quot;,
+        &quot;date_creation&quot;: &quot;1997-05-29&quot;,
+        &quot;address&quot;: &quot;Moll Drassanes&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Pere, Santa Caterina i la Ribera&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08040&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3746514377&quot;,
+        &quot;coord_lon&quot;: &quot;2.1781153022&quot;,
+        &quot;phone&quot;: &quot;617077703&quot;,
+        &quot;schedule&quot;: &quot;https://portvellbcn.cat/ca/portfolio-item/mercat-de-brocanteria-mercat-de-colom/&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 37,
+        &quot;name&quot;: &quot;Fira de Productes Tradicionals Catalans *Pla&ccedil;a del Pi&quot;,
+        &quot;date_creation&quot;: &quot;2008-03-05&quot;,
+        &quot;address&quot;: &quot;Pl Pi&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3823267168&quot;,
+        &quot;coord_lon&quot;: &quot;2.1735761303&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-de-productes-tradicionals-catalans_99400686952.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 38,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans Rambla Poblenou&quot;,
+        &quot;date_creation&quot;: &quot;1997-12-18&quot;,
+        &quot;address&quot;: &quot;Rbla Poblenou&quot;,
+        &quot;address_number&quot;: &quot;72&quot;,
+        &quot;neighborhood&quot;: &quot;el Poblenou&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08068&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4011858725&quot;,
+        &quot;coord_lon&quot;: &quot;2.2013429232&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-dartesans-a-la-rambla-poblenou_99400478629.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 39,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans del Clot *Pl Font i Sagu&eacute;&quot;,
+        &quot;date_creation&quot;: &quot;1997-12-18&quot;,
+        &quot;address&quot;: &quot;Pl Font i Sagu&eacute;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Clot&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08065&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4080626465&quot;,
+        &quot;coord_lon&quot;: &quot;2.1885166723&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 40,
+        &quot;name&quot;: &quot;Fira d&#039;Artesania Popular Catalana *Pla&ccedil;a Eivissa&quot;,
+        &quot;date_creation&quot;: &quot;1997-12-12&quot;,
+        &quot;address&quot;: &quot;Pl Eivissa&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Horta&quot;,
+        &quot;district&quot;: &quot;Horta-Guinard&oacute;&quot;,
+        &quot;zip_code&quot;: &quot;08043&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4299289496&quot;,
+        &quot;coord_lon&quot;: &quot;2.1612249433&quot;,
+        &quot;phone&quot;: null,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 41,
+        &quot;name&quot;: &quot;Mostra d&#039;Art *Pl Sant Josep Oriol&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-01&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a de Sant Josep Oriol&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3825348351&quot;,
+        &quot;coord_lon&quot;: &quot;2.1739865534&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-dart_99400159078.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 42,
+        &quot;name&quot;: &quot;Mostra de Pintors Afeccionats *Pl Sagrada Fam&iacute;lia&quot;,
+        &quot;date_creation&quot;: &quot;1996-04-02&quot;,
+        &quot;address&quot;: &quot;Pl Sagrada Fam&iacute;lia&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;la Sagrada Fam&iacute;lia&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4019739323&quot;,
+        &quot;coord_lon&quot;: &quot;2.1728272814&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 43,
+        &quot;name&quot;: &quot;Fira d&#039;Artesans Placeta de l&#039;Oca&quot;,
+        &quot;date_creation&quot;: &quot;1999-02-26&quot;,
+        &quot;address&quot;: &quot;Placeta de l&#039;Oca&quot;,
+        &quot;address_number&quot;: &quot;0&quot;,
+        &quot;neighborhood&quot;: &quot;el Camp de l&#039;Arpa del Clot&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08064&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4087692479&quot;,
+        &quot;coord_lon&quot;: &quot;2.1850069974&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-placeta-de-l-oca_99057091907.html&quot;,
+        &quot;type&quot;: &quot;fair&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 44,
+        &quot;name&quot;: &quot;Mercat Boqueria - Sant Josep&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer la Rambla&quot;,
+        &quot;address_number&quot;: &quot;89&quot;,
+        &quot;neighborhood&quot;: &quot;el Raval&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3820488944&quot;,
+        &quot;coord_lon&quot;: &quot;2.1722707591&quot;,
+        &quot;phone&quot;: &quot;934132303&quot;,
+        &quot;schedule&quot;: &quot;https://www.boqueria.barcelona&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 45,
+        &quot;name&quot;: &quot;Mercat Santa Caterina&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Av Francesc Camb&oacute;&quot;,
+        &quot;address_number&quot;: &quot;16&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Pere, Santa Caterina i la Ribera&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08040&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3863948816&quot;,
+        &quot;coord_lon&quot;: &quot;2.1781771121&quot;,
+        &quot;phone&quot;: &quot;934132298&quot;,
+        &quot;schedule&quot;: &quot;https://www.mercatsantacaterina.com&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 46,
+        &quot;name&quot;: &quot;Mercat Hostafrancs&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de la Creu Coberta&quot;,
+        &quot;address_number&quot;: &quot;93&quot;,
+        &quot;neighborhood&quot;: &quot;Hostafrancs&quot;,
+        &quot;district&quot;: &quot;Sants-Montju&iuml;c&quot;,
+        &quot;zip_code&quot;: &quot;08015&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3751623444&quot;,
+        &quot;coord_lon&quot;: &quot;2.1438539434&quot;,
+        &quot;phone&quot;: &quot;934132307&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-hostafrancs&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 47,
+        &quot;name&quot;: &quot;Mercat Sants&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;C Sant Jordi&quot;,
+        &quot;address_number&quot;: &quot;6&quot;,
+        &quot;neighborhood&quot;: &quot;Sants&quot;,
+        &quot;district&quot;: &quot;Sants-Montju&iuml;c&quot;,
+        &quot;zip_code&quot;: &quot;08018&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3747414403&quot;,
+        &quot;coord_lon&quot;: &quot;2.1337546284&quot;,
+        &quot;phone&quot;: &quot;932694472&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sants&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 48,
+        &quot;name&quot;: &quot;Mercat Marina&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Passeig de la Zona Franca&quot;,
+        &quot;address_number&quot;: &quot;178&quot;,
+        &quot;neighborhood&quot;: &quot;la Marina de Port&quot;,
+        &quot;district&quot;: &quot;Sants-Montju&iuml;c&quot;,
+        &quot;zip_code&quot;: &quot;08013&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3603802597&quot;,
+        &quot;coord_lon&quot;: &quot;2.139192953&quot;,
+        &quot;phone&quot;: &quot;934132308&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-marina&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 49,
+        &quot;name&quot;: &quot;Mercat Sant Andreu&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a del Mercadal&quot;,
+        &quot;address_number&quot;: &quot;41&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Andreu&quot;,
+        &quot;district&quot;: &quot;Sant Andreu&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4348931291&quot;,
+        &quot;coord_lon&quot;: &quot;2.1883934902&quot;,
+        &quot;phone&quot;: &quot;934132342&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-andreu&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 50,
+        &quot;name&quot;: &quot;Mercat Ciutat Meridiana&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Costabona&quot;,
+        &quot;address_number&quot;: &quot;4&quot;,
+        &quot;neighborhood&quot;: &quot;Ciutat Meridiana&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08055&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4617173616&quot;,
+        &quot;coord_lon&quot;: &quot;2.1778115794&quot;,
+        &quot;phone&quot;: &quot;934132336&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ciutat-meridiana&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 51,
+        &quot;name&quot;: &quot;Mercat Guinard&oacute;&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;C Teodor Llorente&quot;,
+        &quot;address_number&quot;: &quot;10&quot;,
+        &quot;neighborhood&quot;: &quot;el Guinard&oacute;&quot;,
+        &quot;district&quot;: &quot;Horta-Guinard&oacute;&quot;,
+        &quot;zip_code&quot;: &quot;08035&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4191518509&quot;,
+        &quot;coord_lon&quot;: &quot;2.1797214424&quot;,
+        &quot;phone&quot;: &quot;934132332&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guinardo&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 52,
+        &quot;name&quot;: &quot;Mercat Guineueta&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Passeig de Valldaura&quot;,
+        &quot;address_number&quot;: &quot;186&quot;,
+        &quot;neighborhood&quot;: &quot;la Guineueta&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08048&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4386525477&quot;,
+        &quot;coord_lon&quot;: &quot;2.1702456728&quot;,
+        &quot;phone&quot;: &quot;934132338&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guineueta&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 53,
+        &quot;name&quot;: &quot;Mercat Fort Pienc&quot;,
+        &quot;date_creation&quot;: &quot;2003-12-03&quot;,
+        &quot;address&quot;: &quot;Pl Fort Pienc&quot;,
+        &quot;address_number&quot;: &quot;3&quot;,
+        &quot;neighborhood&quot;: &quot;el Fort Pienc&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08050&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3957735719&quot;,
+        &quot;coord_lon&quot;: &quot;2.1825410896&quot;,
+        &quot;phone&quot;: &quot;934132316&quot;,
+        &quot;schedule&quot;: &quot;https://mercatdefortpienc.com/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 54,
+        &quot;name&quot;: &quot;Mercat Barceloneta&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a del Poeta Bosc&agrave;&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;la Barceloneta&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08030&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.380246168&quot;,
+        &quot;coord_lon&quot;: &quot;2.1892812027&quot;,
+        &quot;phone&quot;: &quot;934132304&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-barceloneta&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 55,
+        &quot;name&quot;: &quot;Mercat Ninot&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de Mallorca&quot;,
+        &quot;address_number&quot;: &quot;133&quot;,
+        &quot;neighborhood&quot;: &quot;l&#039;Antiga Esquerra de l&#039;Eixample&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08080&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3878571657&quot;,
+        &quot;coord_lon&quot;: &quot;2.1544122344&quot;,
+        &quot;phone&quot;: &quot;934132322&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ninot&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 56,
+        &quot;name&quot;: &quot;Mercat Sant Mart&iacute;&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Puigcerd&agrave;&quot;,
+        &quot;address_number&quot;: &quot;206&quot;,
+        &quot;neighborhood&quot;: &quot;la Verneda i la Pau&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08073&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4186564811&quot;,
+        &quot;coord_lon&quot;: &quot;2.2053227926&quot;,
+        &quot;phone&quot;: &quot;934132297&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-marti&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 57,
+        &quot;name&quot;: &quot;Mercat Bes&ograve;s&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;C Jaume Huguet&quot;,
+        &quot;address_number&quot;: &quot;38&quot;,
+        &quot;neighborhood&quot;: &quot;el Bes&ograve;s i el Maresme&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08070&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4192321675&quot;,
+        &quot;coord_lon&quot;: &quot;2.2151291359&quot;,
+        &quot;phone&quot;: &quot;934132305&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-besos&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 58,
+        &quot;name&quot;: &quot;Mercat Canyelles&quot;,
+        &quot;date_creation&quot;: &quot;1987-03-26&quot;,
+        &quot;address&quot;: &quot;Carrer d&#039;Antonio Machado&quot;,
+        &quot;address_number&quot;: &quot;10&quot;,
+        &quot;neighborhood&quot;: &quot;Canyelles&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08049&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4419881929&quot;,
+        &quot;coord_lon&quot;: &quot;2.1644271206&quot;,
+        &quot;phone&quot;: &quot;934132324&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-canyelles&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 59,
+        &quot;name&quot;: &quot;Mercat Sarri&agrave;&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Pg Reina Elisenda Montcada&quot;,
+        &quot;address_number&quot;: &quot;8&quot;,
+        &quot;neighborhood&quot;: &quot;Sarri&agrave;&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08023&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3998359321&quot;,
+        &quot;coord_lon&quot;: &quot;2.1207231797&quot;,
+        &quot;phone&quot;: &quot;934132326&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sarria&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 60,
+        &quot;name&quot;: &quot;Mercat Abaceria Central&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Pg Sant Joan&quot;,
+        &quot;address_number&quot;: &quot;181&quot;,
+        &quot;neighborhood&quot;: &quot;el Camp d&#039;en Grassot i Gr&agrave;cia Nova&quot;,
+        &quot;district&quot;: &quot;Gr&agrave;cia&quot;,
+        &quot;zip_code&quot;: &quot;08032&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4031865287&quot;,
+        &quot;coord_lon&quot;: &quot;2.1641791643&quot;,
+        &quot;phone&quot;: &quot;934132313&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-abaceria-central&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 61,
+        &quot;name&quot;: &quot;Mercat Clot&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Pl Mercat&quot;,
+        &quot;address_number&quot;: &quot;26&quot;,
+        &quot;neighborhood&quot;: &quot;el Clot&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08065&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4076169424&quot;,
+        &quot;coord_lon&quot;: &quot;2.1886443724&quot;,
+        &quot;phone&quot;: &quot;934132306&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-clot&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 62,
+        &quot;name&quot;: &quot;Mercat Poblenou - Uni&oacute;&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Pl Uni&oacute;&quot;,
+        &quot;address_number&quot;: &quot;25&quot;,
+        &quot;neighborhood&quot;: &quot;el Poblenou&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08068&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4010217485&quot;,
+        &quot;coord_lon&quot;: &quot;2.2054291964&quot;,
+        &quot;phone&quot;: &quot;934132309&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-poblenou&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 63,
+        &quot;name&quot;: &quot;Mercat Proven&ccedil;als&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Menorca&quot;,
+        &quot;address_number&quot;: &quot;19&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Mart&iacute; de Proven&ccedil;als&quot;,
+        &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+        &quot;zip_code&quot;: &quot;08072&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4194575005&quot;,
+        &quot;coord_lon&quot;: &quot;2.1964853597&quot;,
+        &quot;phone&quot;: &quot;662002663&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-provencals&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 64,
+        &quot;name&quot;: &quot;Mercat Tres Torres&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer dels Verg&oacute;s&quot;,
+        &quot;address_number&quot;: &quot;2&quot;,
+        &quot;neighborhood&quot;: &quot;les Tres Torres&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08024&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3999447579&quot;,
+        &quot;coord_lon&quot;: &quot;2.1312808904&quot;,
+        &quot;phone&quot;: &quot;934132327&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-tres-torres&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 65,
+        &quot;name&quot;: &quot;Mercat Sant Gervasi&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Pl Joaquim Folguera&quot;,
+        &quot;address_number&quot;: &quot;6&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Gervasi - la Bonanova&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08025&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4056633531&quot;,
+        &quot;coord_lon&quot;: &quot;2.1385455717&quot;,
+        &quot;phone&quot;: &quot;934132325&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-gervasi&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 66,
+        &quot;name&quot;: &quot;Mercat Concepci&oacute;&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer d&#039;Arag&oacute;&quot;,
+        &quot;address_number&quot;: &quot;311&quot;,
+        &quot;neighborhood&quot;: &quot;la Dreta de l&#039;Eixample&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08070&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3955681595&quot;,
+        &quot;coord_lon&quot;: &quot;2.1690716483&quot;,
+        &quot;phone&quot;: &quot;934132314&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-concepcio&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 67,
+        &quot;name&quot;: &quot;Mercat Sagrada Fam&iacute;lia&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de Padilla&quot;,
+        &quot;address_number&quot;: &quot;255&quot;,
+        &quot;neighborhood&quot;: &quot;la Sagrada Fam&iacute;lia&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08060&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4057184476&quot;,
+        &quot;coord_lon&quot;: &quot;2.1770294201&quot;,
+        &quot;phone&quot;: &quot;934132324&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sagrada-familia&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 68,
+        &quot;name&quot;: &quot;Mercat Sant Antoni&quot;,
+        &quot;date_creation&quot;: &quot;1990-06-25&quot;,
+        &quot;address&quot;: &quot;Carrer del Comte d&#039;Urgell&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Antoni&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3795682194&quot;,
+        &quot;coord_lon&quot;: &quot;2.1617431158&quot;,
+        &quot;phone&quot;: &quot;934132300&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-antoni&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 69,
+        &quot;name&quot;: &quot;Mercat Les Corts&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Travessera de les Corts&quot;,
+        &quot;address_number&quot;: &quot;215&quot;,
+        &quot;neighborhood&quot;: &quot;les Corts&quot;,
+        &quot;district&quot;: &quot;Les Corts&quot;,
+        &quot;zip_code&quot;: &quot;08019&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3840780606&quot;,
+        &quot;coord_lon&quot;: &quot;2.1298048647&quot;,
+        &quot;phone&quot;: &quot;667570336&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-les-corts&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 70,
+        &quot;name&quot;: &quot;Mercat Galvany&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de Santal&oacute;&quot;,
+        &quot;address_number&quot;: &quot;65&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Gervasi - Galvany&quot;,
+        &quot;district&quot;: &quot;Sarri&agrave;-Sant Gervasi&quot;,
+        &quot;zip_code&quot;: &quot;08026&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3966823914&quot;,
+        &quot;coord_lon&quot;: &quot;2.1436789434&quot;,
+        &quot;phone&quot;: &quot;934132317&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-galvany&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 71,
+        &quot;name&quot;: &quot;Mercat Llibertat&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Pla&ccedil;a de la Llibertat&quot;,
+        &quot;address_number&quot;: &quot;27&quot;,
+        &quot;neighborhood&quot;: &quot;la Vila de Gr&agrave;cia&quot;,
+        &quot;district&quot;: &quot;Gr&agrave;cia&quot;,
+        &quot;zip_code&quot;: &quot;08031&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3997378488&quot;,
+        &quot;coord_lon&quot;: &quot;2.1537484883&quot;,
+        &quot;phone&quot;: &quot;933687946&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-llibertat&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 72,
+        &quot;name&quot;: &quot;Mercat Carmel&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;C Llobreg&oacute;s&quot;,
+        &quot;address_number&quot;: &quot;149&quot;,
+        &quot;neighborhood&quot;: &quot;el Carmel&quot;,
+        &quot;district&quot;: &quot;Horta-Guinard&oacute;&quot;,
+        &quot;zip_code&quot;: &quot;08037&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4237404665&quot;,
+        &quot;coord_lon&quot;: &quot;2.1558097621&quot;,
+        &quot;phone&quot;: &quot;934132335&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-carmel&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 73,
+        &quot;name&quot;: &quot;Mercat Trinitat&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de la Pedrosa&quot;,
+        &quot;address_number&quot;: &quot;21&quot;,
+        &quot;neighborhood&quot;: &quot;la Trinitat Nova&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08053&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4486920275&quot;,
+        &quot;coord_lon&quot;: &quot;2.1842333444&quot;,
+        &quot;phone&quot;: &quot;934132343&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-trinitat&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 74,
+        &quot;name&quot;: &quot;Mercat Felip II&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Felip II&quot;,
+        &quot;address_number&quot;: &quot;118&quot;,
+        &quot;neighborhood&quot;: &quot;la Sagrera&quot;,
+        &quot;district&quot;: &quot;Sant Andreu&quot;,
+        &quot;zip_code&quot;: &quot;08061&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.422026112&quot;,
+        &quot;coord_lon&quot;: &quot;2.1850927221&quot;,
+        &quot;phone&quot;: &quot;934132337&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-felip-ii&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 75,
+        &quot;name&quot;: &quot;Mercat de les Flors *Les Rambles&quot;,
+        &quot;date_creation&quot;: &quot;1985-03-22&quot;,
+        &quot;address&quot;: &quot;C la Rambla&quot;,
+        &quot;address_number&quot;: &quot;116&quot;,
+        &quot;neighborhood&quot;: &quot;el Barri G&ograve;tic&quot;,
+        &quot;district&quot;: &quot;Ciutat Vella&quot;,
+        &quot;zip_code&quot;: &quot;08020&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3829864542&quot;,
+        &quot;coord_lon&quot;: &quot;2.1719482423&quot;,
+        &quot;phone&quot;: &quot;-&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 76,
+        &quot;name&quot;: &quot;Mercat Dominical de Sant Antoni&quot;,
+        &quot;date_creation&quot;: &quot;1996-02-27&quot;,
+        &quot;address&quot;: &quot;C Comte d&#039;Urgell&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Antoni&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3795682194&quot;,
+        &quot;coord_lon&quot;: &quot;2.1617431158&quot;,
+        &quot;phone&quot;: &quot;934132300&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 77,
+        &quot;name&quot;: &quot;Mercat N&uacute;ria&quot;,
+        &quot;date_creation&quot;: &quot;2022-07-12&quot;,
+        &quot;address&quot;: &quot;Avinguda dels Rasos de Peguera&quot;,
+        &quot;address_number&quot;: &quot;186&quot;,
+        &quot;neighborhood&quot;: &quot;Ciutat Meridiana&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08055&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4599520292&quot;,
+        &quot;coord_lon&quot;: &quot;2.1726367469&quot;,
+        &quot;phone&quot;: &quot;934132890&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 78,
+        &quot;name&quot;: &quot;Mercat Estrella&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Pi i Margall&quot;,
+        &quot;address_number&quot;: &quot;73&quot;,
+        &quot;neighborhood&quot;: &quot;el Camp d&#039;en Grassot i Gr&agrave;cia Nova&quot;,
+        &quot;district&quot;: &quot;Gr&agrave;cia&quot;,
+        &quot;zip_code&quot;: &quot;08032&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4099110949&quot;,
+        &quot;coord_lon&quot;: &quot;2.1639930826&quot;,
+        &quot;phone&quot;: &quot;934132315&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 79,
+        &quot;name&quot;: &quot;Mercat Vall d&#039;Hebron -Taxonera&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Pg Vall d&#039;Hebron&quot;,
+        &quot;address_number&quot;: &quot;130&quot;,
+        &quot;neighborhood&quot;: &quot;la Teixonera&quot;,
+        &quot;district&quot;: &quot;Horta-Guinard&oacute;&quot;,
+        &quot;zip_code&quot;: &quot;08038&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4240621731&quot;,
+        &quot;coord_lon&quot;: &quot;2.1424522802&quot;,
+        &quot;phone&quot;: &quot;934132344&quot;,
+        &quot;schedule&quot;: null,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 80,
+        &quot;name&quot;: &quot;Mercat Horta&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Carrer de Lisboa&quot;,
+        &quot;address_number&quot;: &quot;34&quot;,
+        &quot;neighborhood&quot;: &quot;Horta&quot;,
+        &quot;district&quot;: &quot;Horta-Guinard&oacute;&quot;,
+        &quot;zip_code&quot;: &quot;08043&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4292185768&quot;,
+        &quot;coord_lon&quot;: &quot;2.1573096629&quot;,
+        &quot;phone&quot;: &quot;934204858&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-horta&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 81,
+        &quot;name&quot;: &quot;Mercat Merc&egrave;&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Passeig de Fabra i Puig&quot;,
+        &quot;address_number&quot;: &quot;270&quot;,
+        &quot;neighborhood&quot;: &quot;el Tur&oacute; de la Peira&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08046&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4304831349&quot;,
+        &quot;coord_lon&quot;: &quot;2.1735994954&quot;,
+        &quot;phone&quot;: &quot;934132340&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-merce&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 82,
+        &quot;name&quot;: &quot;Mercat Bon Pastor&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;C Sant Adri&agrave;&quot;,
+        &quot;address_number&quot;: &quot;154&quot;,
+        &quot;neighborhood&quot;: &quot;el Bon Pastor&quot;,
+        &quot;district&quot;: &quot;Sant Andreu&quot;,
+        &quot;zip_code&quot;: &quot;08059&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4360134875&quot;,
+        &quot;coord_lon&quot;: &quot;2.2061721529&quot;,
+        &quot;phone&quot;: &quot;934132333&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-bon-pastor&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 83,
+        &quot;name&quot;: &quot;Mercat Lesseps&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;Carrer de Verdi&quot;,
+        &quot;address_number&quot;: &quot;200&quot;,
+        &quot;neighborhood&quot;: &quot;la Salut&quot;,
+        &quot;district&quot;: &quot;Gr&agrave;cia&quot;,
+        &quot;zip_code&quot;: &quot;08030&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4091323732&quot;,
+        &quot;coord_lon&quot;: &quot;2.1520583716&quot;,
+        &quot;phone&quot;: &quot;934132319&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-lesseps&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 84,
+        &quot;name&quot;: &quot;Mercat Encants de Sant Antoni&quot;,
+        &quot;date_creation&quot;: &quot;1984-12-28&quot;,
+        &quot;address&quot;: &quot;C Comte d&#039;Urgell&quot;,
+        &quot;address_number&quot;: &quot;1&quot;,
+        &quot;neighborhood&quot;: &quot;Sant Antoni&quot;,
+        &quot;district&quot;: &quot;Eixample&quot;,
+        &quot;zip_code&quot;: &quot;08010&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.3813015469&quot;,
+        &quot;coord_lon&quot;: &quot;2.1634511872&quot;,
+        &quot;phone&quot;: &quot;934132300&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 85,
+        &quot;name&quot;: &quot;Mercat Montserrat&quot;,
+        &quot;date_creation&quot;: &quot;1985-01-17&quot;,
+        &quot;address&quot;: &quot;Via Fav&egrave;ncia&quot;,
+        &quot;address_number&quot;: &quot;241&quot;,
+        &quot;neighborhood&quot;: &quot;les Roquetes&quot;,
+        &quot;district&quot;: &quot;Nou Barris&quot;,
+        &quot;zip_code&quot;: &quot;08050&quot;,
+        &quot;town&quot;: &quot;Barcelona&quot;,
+        &quot;coord_lat&quot;: &quot;41.4463250726&quot;,
+        &quot;coord_lon&quot;: &quot;2.1787888337&quot;,
+        &quot;phone&quot;: &quot;934132341&quot;,
+        &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-montserrat&quot;,
+        &quot;type&quot;: &quot;market&quot;,
+        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+    }
+]</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-street_market" hidden>
@@ -241,6 +1782,311 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="endpoints-POSTapi-street_market">Almacena un nuevo mercado callejero en la base de datos.</h2>
+
+<p>
+</p>
+
+<p>Escenarios:</p>
+<ul>
+<li>200: Si el mercado se crea exitosamente.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Street Market created successfully&quot;
+}</li>
+<li>422: Si la validación del request falla (por ejemplo, si falta el campo 'name').
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Validation failed&quot;,
+&quot;errors&quot;: {
+&quot;name&quot;: [&quot;El campo name es obligatorio.&quot;]
+}
+}</li>
+<li>500: Si ocurre un error interno al intentar crear el mercado.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Error interno del servidor.&quot;
+}</li>
+</ul>
+
+<span id="example-requests-POSTapi-street_market">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/street_market" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"znawwoqc\",
+    \"date_creation\": \"2024-10-22T17:23:17\",
+    \"address\": \"hzzm\",
+    \"address_number\": \"ybdcdxagxnnferirvfwvhekrt\",
+    \"neighborhood\": \"tkmdtpqwzee\",
+    \"district\": \"gunmasfl\",
+    \"zip_code\": \"xdhuubxqe\",
+    \"town\": \"xfoctuomhp\",
+    \"coord_x\": 15,
+    \"coord_y\": 15,
+    \"phone\": \"epnxnlgwj\",
+    \"schedule\": \"ucjav\",
+    \"type\": \"molestiae\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/street_market"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "znawwoqc",
+    "date_creation": "2024-10-22T17:23:17",
+    "address": "hzzm",
+    "address_number": "ybdcdxagxnnferirvfwvhekrt",
+    "neighborhood": "tkmdtpqwzee",
+    "district": "gunmasfl",
+    "zip_code": "xdhuubxqe",
+    "town": "xfoctuomhp",
+    "coord_x": 15,
+    "coord_y": 15,
+    "phone": "epnxnlgwj",
+    "schedule": "ucjav",
+    "type": "molestiae"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-street_market">
+</span>
+<span id="execution-results-POSTapi-street_market" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-street_market"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-street_market"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-street_market" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-street_market">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-street_market" data-method="POST"
+      data-path="api/street_market"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-street_market', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-street_market"
+                    onclick="tryItOut('POSTapi-street_market');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-street_market"
+                    onclick="cancelTryOut('POSTapi-street_market');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-street_market"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/street_market</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-street_market"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-street_market"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-street_market"
+               value="znawwoqc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>znawwoqc</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_creation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_creation"                data-endpoint="POSTapi-street_market"
+               value="2024-10-22T17:23:17"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-10-22T17:23:17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-street_market"
+               value="hzzm"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>hzzm</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address_number"                data-endpoint="POSTapi-street_market"
+               value="ybdcdxagxnnferirvfwvhekrt"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>ybdcdxagxnnferirvfwvhekrt</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>neighborhood</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="neighborhood"                data-endpoint="POSTapi-street_market"
+               value="tkmdtpqwzee"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>tkmdtpqwzee</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>district</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="district"                data-endpoint="POSTapi-street_market"
+               value="gunmasfl"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>gunmasfl</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>zip_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="zip_code"                data-endpoint="POSTapi-street_market"
+               value="xdhuubxqe"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>xdhuubxqe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>town</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="town"                data-endpoint="POSTapi-street_market"
+               value="xfoctuomhp"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>xfoctuomhp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coord_x</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="coord_x"                data-endpoint="POSTapi-street_market"
+               value="15"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255. Example: <code>15</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coord_y</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="coord_y"                data-endpoint="POSTapi-street_market"
+               value="15"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255. Example: <code>15</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="POSTapi-street_market"
+               value="epnxnlgwj"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>epnxnlgwj</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>schedule</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="schedule"                data-endpoint="POSTapi-street_market"
+               value="ucjav"
+               data-component="body">
+    <br>
+<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>ucjav</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="POSTapi-street_market"
+               value="molestiae"
+               data-component="body">
+    <br>
+<p>Example: <code>molestiae</code></p>
+        </div>
+        </form>
+
                     <h2 id="endpoints-GETapi-street_market--id-">Muestra un mercado callejero específico.</h2>
 
 <p>
@@ -274,14 +2120,14 @@ Ejemplo de respuesta:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/street_market/17" \
+    --get "http://localhost/api/street_market/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/street_market/17"
+    "http://localhost/api/street_market/1"
 );
 
 const headers = {
@@ -298,7 +2144,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-street_market--id-">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -306,11 +2152,26 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: *
+vary: Origin
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\StreetMarket] 17&quot;
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Mercat setmanal de  Proven&ccedil;als&quot;,
+    &quot;date_creation&quot;: &quot;1998-07-06&quot;,
+    &quot;address&quot;: &quot;C Menorca&quot;,
+    &quot;address_number&quot;: &quot;19&quot;,
+    &quot;neighborhood&quot;: &quot;Sant Mart&iacute; de Proven&ccedil;als&quot;,
+    &quot;district&quot;: &quot;Sant Mart&iacute;&quot;,
+    &quot;zip_code&quot;: &quot;08072&quot;,
+    &quot;town&quot;: &quot;Barcelona&quot;,
+    &quot;coord_lat&quot;: &quot;41.4194585189&quot;,
+    &quot;coord_lon&quot;: &quot;2.1964867232&quot;,
+    &quot;phone&quot;: &quot;932916000&quot;,
+    &quot;schedule&quot;: null,
+    &quot;type&quot;: &quot;market&quot;,
+    &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -390,12 +2251,157 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-street_market--id-"
-               value="17"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the street market. Example: <code>17</code></p>
+<p>The ID of the street market. Example: <code>1</code></p>
             </div>
                     </form>
+
+                    <h2 id="endpoints-POSTapi-street_market-import">Importa datos de mercados callejeros desde un archivo JSON.</h2>
+
+<p>
+</p>
+
+<p>Escenarios:</p>
+<ul>
+<li>200: Si los datos se importan correctamente.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Dades importades correctament&quot;
+}</li>
+<li>422: Si la validación del archivo falla (por ejemplo, si no se proporciona un archivo).
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Validation failed&quot;,
+&quot;errors&quot;: {
+&quot;file&quot;: [&quot;El archivo es obligatorio.&quot;]
+}
+}</li>
+<li>500: Si ocurre un error interno al intentar leer o procesar el archivo.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Error interno del servidor.&quot;
+}</li>
+</ul>
+
+<span id="example-requests-POSTapi-street_market-import">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/street_market/import" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "file=@C:\Users\formacio\AppData\Local\Temp\php8BD2.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/street_market/import"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('file', document.querySelector('input[name="file"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-street_market-import">
+</span>
+<span id="execution-results-POSTapi-street_market-import" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-street_market-import"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-street_market-import"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-street_market-import" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-street_market-import">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-street_market-import" data-method="POST"
+      data-path="api/street_market/import"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-street_market-import', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-street_market-import"
+                    onclick="tryItOut('POSTapi-street_market-import');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-street_market-import"
+                    onclick="cancelTryOut('POSTapi-street_market-import');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-street_market-import"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/street_market/import</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-street_market-import"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-street_market-import"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi-street_market-import"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be a file. Example: <code>C:\Users\formacio\AppData\Local\Temp\php8BD2.tmp</code></p>
+        </div>
+        </form>
 
             
 
