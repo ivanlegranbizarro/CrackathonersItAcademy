@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import market from '../../../assets/images/market.png';
-import fair from'../../../assets/images/fair.png'
+import market from '../../assets/images/market.png';
+import fair from'../../assets/images/fair.png'
 
 const ContentCardDetails = styled.main`
     position: fixed;
@@ -37,7 +37,7 @@ const CardDetailsSection = styled.section`
 `;
 
 const Header = styled.header`
-    width: 50%;
+    width: 65%;
     margin: 10px;
 `;
 
@@ -46,12 +46,12 @@ color: black;
 `
 
 const Aside = styled.aside`
-    width: 50%;
+    width: 35%;
     text-align: start;
     display: flex;
     flex-direction: column;
     margin: 10px;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
 `;
 
@@ -73,9 +73,12 @@ const CardDetails = ({card,setOpenModal}) => {
                     <Title>{card.title}</Title>
                 </Header>
                 <Aside>
-                    <div><h2>Tipo:</h2><p>{card.type}</p></div>
-                    <div><h2>Dirección:</h2><p>{card.direction}</p></div>
-                    <div><h2>Año de apertura:</h2><p>{card.year}</p></div>
+                    <div style={{lineHeight:"1rem"}}><h2>Tipo:</h2><p>{card.type}</p></div>
+
+                    <div style={{lineHeight:"1rem"}}><h2>Dirección:</h2><p>{card.direction}, CP:{card.zip}</p></div>
+                    <div style={{lineHeight:"1rem"}}><h2>Año de apertura:</h2><p>{card.year}</p></div>
+                    <div style={{lineHeight:"1rem"}}><h2>Link Web:</h2><p>{card.link}</p></div>
+
                 </Aside>
             </CardDetailsSection>       
         </ContentCardDetails>
