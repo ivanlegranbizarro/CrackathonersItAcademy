@@ -44,22 +44,19 @@ const mercatsData = [
 const MapContainerStyled = styled.div`
   width: 85%;
   margin: 0 auto;
-
-  @media only screen and (max-width: 600px) {
-    width: 85%;
-  }
-
-  @media only screen and (min-width: 601px) {
-    width: 85%;
-  }
 `;
 
 const TextStyle = styled.div`
-  font-size: 2.5rem;
-  margin-block: 60px;
-  border-bottom: 3px solid green;
-  padding-bottom: 20px;
+  margin-block: 40px;
+  border-bottom: 2px solid green;
+  padding-bottom: 10px;
   font-weight: bolder;
+
+  @media only screen and (min-width: 601px) {
+    font-size: 2.5rem; 
+    border-bottom: 3px solid green;
+    padding-bottom: 20px;
+  }
 `;
 
 export const MapMarkets = () => {
