@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "ce666a24-b790-447c-a84b-46f2f572f6fb",
+        "_postman_id": "d5dbadb1-3078-439d-8eb5-46503a767910",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,13 +20,13 @@
             "description": "",
             "item": [
                 {
-                    "name": "GET api\/user",
+                    "name": "Obtiene una lista de todos los mercados callejeros.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/user",
+                            "path": "api\/street_market",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/user"
+                            "raw": "{{baseUrl}}\/api\/street_market"
                         },
                         "method": "GET",
                         "header": [
@@ -40,7 +40,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "Escenarios:\n- 200: Si la solicitud se procesa correctamente y se devuelven los mercados.\n  Ejemplo de respuesta:\n  [\n      { \"id\": 1, \"name\": \"Mercado Central\", \"address\": \"Av. Principal 123\", ... },\n      { \"id\": 2, \"name\": \"Feria de Artesanos\", \"address\": \"Calle Secundaria 456\", ... }\n  ]\n- 500: Si ocurre un error interno en el servidor al recuperar los datos.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -61,8 +61,64 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Muestra un mercado callejero espec\u00edfico.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/street_market\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/street_market\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "The ID of the street market."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Escenarios:\n- 200: Si el mercado existe y se devuelve correctamente.\n  Ejemplo de respuesta:\n  {\n      \"id\": 1,\n      \"name\": \"Mercado Central\",\n      \"address\": \"Av. Principal 123\",\n      ...\n  }\n- 404: Si el mercado no se encuentra.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market not found\"\n  }\n- 500: Si ocurre un error interno al intentar recuperar el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\StreetMarket] 17\"\n}",
                             "name": ""
                         }
                     ]

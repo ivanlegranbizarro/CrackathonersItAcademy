@@ -24,6 +24,7 @@ class StreetMarketController extends Controller
 
     public function store(StoreStreetMarketRequest $request): JsonResponse
     {
+        echo "estas dentro de store";exit;
         $data = $request->validated();
         StreetMarket::create($data);
         return response()->json("message: Street Market created successfully", 200);
@@ -54,12 +55,12 @@ class StreetMarketController extends Controller
     }
 
     public function importData(Request $request) {
-       
+
         $request->validate(['file' => 'required|file|mimes:json']);
-    
+
         $jsonContent = file_get_contents($request->file('file')->getRealPath());
         $streetMarketData = json_decode($jsonContent, true);
-    
+
         foreach ($streetMarketData as $streetMarket) {
             StreetMarket::create($streetMarket);
         }

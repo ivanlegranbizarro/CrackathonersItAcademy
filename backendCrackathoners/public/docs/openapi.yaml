@@ -7,28 +7,56 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/user:
+  /api/street_market:
     get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
+      summary: 'Obtiene una lista de todos los mercados callejeros.'
+      operationId: obtieneUnaListaDeTodosLosMercadosCallejeros
+      description: "Escenarios:\n- 200: Si la solicitud se procesa correctamente y se devuelven los mercados.\n  Ejemplo de respuesta:\n  [\n      { \"id\": 1, \"name\": \"Mercado Central\", \"address\": \"Av. Principal 123\", ... },\n      { \"id\": 2, \"name\": \"Feria de Artesanos\", \"address\": \"Calle Secundaria 456\", ... }\n  ]\n- 500: Si ocurre un error interno en el servidor al recuperar los datos."
       parameters: []
       responses:
-        401:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/street_market/{id}':
+    get:
+      summary: 'Muestra un mercado callejero específico.'
+      operationId: muestraUnMercadoCallejeroEspecfico
+      description: "Escenarios:\n- 200: Si el mercado existe y se devuelve correctamente.\n  Ejemplo de respuesta:\n  {\n      \"id\": 1,\n      \"name\": \"Mercado Central\",\n      \"address\": \"Av. Principal 123\",\n      ...\n  }\n- 404: Si el mercado no se encuentra.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market not found\"\n  }\n- 500: Si ocurre un error interno al intentar recuperar el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses:
+        404:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'No query results for model [App\Models\StreetMarket] 17'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'No query results for model [App\Models\StreetMarket] 17'
       tags:
         - Endpoints
       security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the street market.'
+        example: 17
+        required: true
+        schema:
+          type: integer
 tags:
   -
     name: Endpoints
