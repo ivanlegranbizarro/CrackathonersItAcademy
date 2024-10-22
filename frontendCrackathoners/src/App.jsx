@@ -4,6 +4,7 @@ import CardDetails from "./components/CardDetails/CardDetails";
 import styled from "styled-components";
 import Navbar from './components/navbar/Navbar'
 import list from './mocks/ferias.json'
+import SearchBar from "./components/searchbar/SearchBar";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         </ContentCards>
 
         {openModal && <CardDetails card={cardSelected} setOpenModal={setOpenModal} />}
+        <SearchBar />
       </main>
     </>
   );
