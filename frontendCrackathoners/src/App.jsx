@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import styled from "styled-components";
-import './App.css'
+//import { useState } from "react";
+//import styled from "styled-components";
+import SearchBar from "./components/SearchBar";
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-      <h1>Hello World!</h1>
-    </>
-  )
+    return (
+        <>
+            <SearchBar />
+        </>
+    );
 }
 
-export default App
+export default App;
