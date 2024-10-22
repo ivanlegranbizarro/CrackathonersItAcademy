@@ -82,8 +82,8 @@ const defaultIcon = L.icon({
 
 const selectedIcon = L.icon({
   iconUrl: selectedIconUrl,
-  iconSize: [75, 91],
-  iconAnchor: [37.5, 91],
+  iconSize: [65, 81],
+  iconAnchor: [32.5, 81],
 });
 
 
@@ -120,7 +120,7 @@ export const MapMarkets = () => {
           <React.Fragment key={marker.id}>
             <Marker
               position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
-              icon={selectedMarker === marker.id ? selectedIcon : defaultIcon}
+              icon={selectedMarker === marker ? selectedIcon : defaultIcon}
               eventHandlers={{
                 click: () => handleMarkerClick(marker),
               }}
