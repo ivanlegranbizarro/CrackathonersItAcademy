@@ -12,11 +12,10 @@ function App() {
     const [cardSelected, setCardSelected] = useState({});
     const [isMap,setIsMap]=useState(false);
     const [query, setQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState(list); 
+
 
     useEffect(() => {}, [isMap]);
-
-
-    const [filteredCards, setFilteredCards] = useState(list); 
 
     useEffect(() => {
         setFilteredCards(filteredList(query)); 
@@ -44,7 +43,7 @@ function App() {
             <SearchBar isMap={isMap} setIsMap={setIsMap} query={query} setQuery={setQuery}/>
             <main>
               {isMap ? "Aqui va el mapa" : <ContentCards>
-                    {filteredCards.map((card) => (
+                    {list?filteredCards.map((card) => (
                         <DivCards
                             key={card.id}
                             onClick={() => {
@@ -54,7 +53,7 @@ function App() {
                         >
                             <Card card={card} />
                         </DivCards>
-                    ))}
+                    )):"No hem trobat dades"}
                 </ContentCards>}
                
 
