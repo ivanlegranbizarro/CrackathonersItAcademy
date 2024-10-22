@@ -59,17 +59,17 @@ const mercatsData = [
           <Marker
             key={marker.id}
             position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
-          >
-            <Popup>
+          />
+        ))}
+      </MapContainer>
+
+      {/*  <Popup>
               <p>{marker.type}</p>
               <p>{marker.name}</p>
               <p>{marker.district}</p>
               <p>{marker.adress}</p>
 t
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+            </Popup> */}
     </div>
   );
 };
