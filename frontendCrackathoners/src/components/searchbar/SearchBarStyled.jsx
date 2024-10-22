@@ -30,6 +30,7 @@ export const Icon = styled.img`
 
 export const SearchForm = styled.form`
     position: fixed;
+    z-index: 3;
     margin-bottom: 15px;
     bottom: 0;
     left: 0;
