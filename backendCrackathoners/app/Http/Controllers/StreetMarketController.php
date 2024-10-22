@@ -64,7 +64,7 @@ class StreetMarketController extends Controller
     {
         $data = $request->validated();
         StreetMarket::create($data);
-        return response()->json("message: Street Market created successfully", 200);
+        return response()->json("message: Street Market created successfully", 201);
     }
 
     /**
