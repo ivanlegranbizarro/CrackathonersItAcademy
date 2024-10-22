@@ -24,10 +24,9 @@ class StreetMarketController extends Controller
 
     public function store(StoreStreetMarketRequest $request): JsonResponse
     {
-        echo "estas dentro de store";exit;
         $data = $request->validated();
         StreetMarket::create($data);
-        return response()->json("message: Street Market created successfully", 200);
+        return response()->json("message: Street Market created successfully", 201);
     }
 
     public function show(StreetMarket $streetMarket)
