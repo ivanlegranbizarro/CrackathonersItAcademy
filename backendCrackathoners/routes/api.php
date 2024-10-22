@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\StreetMarket;
+use App\Http\Controllers\StreetMarketController;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('streetmakert', StreetMarket::class)->only(['index', 'show']);
+Route::apiResource('street_market', StreetMarketController::class)->only(['index', 'show', 'store']);
+Route::post('/street_market/import', [StreetMarketController::class, 'importData']);

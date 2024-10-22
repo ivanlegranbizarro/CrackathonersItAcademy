@@ -1,0 +1,17 @@
+GET http://localhost:8000/api/street_market
+Content-Type: application/json
+Accept: application/json
+###
+
+
+GET http://localhost:8000/api/street_market/1
+Content-Type: application/json
+Accept: application/json
+###
+
+POST http://localhost:8000/api/street_market
+Content-Type: application/json
+Accept: application/json
+
+{}
+###

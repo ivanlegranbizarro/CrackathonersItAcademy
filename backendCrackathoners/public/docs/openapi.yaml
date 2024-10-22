@@ -7,27 +7,1677 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/user:
+  /api/street_market:
     get:
-      summary: ''
-      operationId: getApiUser
-      description: ''
+      summary: 'Obtiene una lista de todos los mercados callejeros.'
+      operationId: obtieneUnaListaDeTodosLosMercadosCallejeros
+      description: "Escenarios:\n- 200: Si la solicitud se procesa correctamente y se devuelven los mercados.\n  Ejemplo de respuesta:\n  [\n      { \"id\": 1, \"name\": \"Mercado Central\", \"address\": \"Av. Principal 123\", ... },\n      { \"id\": 2, \"name\": \"Feria de Artesanos\", \"address\": \"Calle Secundaria 456\", ... }\n  ]\n- 500: Si ocurre un error interno en el servidor al recuperar los datos.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
       parameters: []
       responses:
-        401:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'Mercat setmanal de  Provençals'
+                    date_creation: '1998-07-06'
+                    address: 'C Menorca'
+                    address_number: '19'
+                    neighborhood: 'Sant Martí de Provençals'
+                    district: 'Sant Martí'
+                    zip_code: '08072'
+                    town: Barcelona
+                    coord_lat: '41.4194585189'
+                    coord_lon: '2.1964867232'
+                    phone: '932916000'
+                    schedule: null
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 2
+                    name: 'Mercat Gòtic Antiguitats *Plaça Nova'
+                    date_creation: '1996-04-01'
+                    address: 'Plaça Nova'
+                    address_number: '1'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3838077418'
+                    coord_lon: '2.1753483281'
+                    phone: null
+                    schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-gotic-antiguitats-placa-nova_96092125659'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 3
+                    name: "Fira del Col·lectiu d'Artesans d'Alimentació *Plaça del Pi"
+                    date_creation: '1996-04-01'
+                    address: 'Pl Pi'
+                    address_number: '1'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3823267168'
+                    coord_lon: '2.1735761303'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-del-collectiu-d-artesans-d-alimentacio-placa-del-pi_99400686952.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 4
+                    name: "Mostra d'Art *Plaça de Sarrià"
+                    date_creation: '1996-04-02'
+                    address: 'Pl Sarrià'
+                    address_number: '1'
+                    neighborhood: Sarrià
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08023'
+                    town: Barcelona
+                    coord_lat: '41.4001453287'
+                    coord_lon: '2.1223833128'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/mostra-d-art-placa-de-sarria_99400159418.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 5
+                    name: "Fira d'Artesania Rosa de Maig"
+                    date_creation: '1997-12-19'
+                    address: 'Pl Comerç'
+                    address_number: '1'
+                    neighborhood: 'Sant Andreu'
+                    district: 'Sant Andreu'
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4355661983'
+                    coord_lon: '2.1898445896'
+                    phone: '-'
+                    schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/fira-d-artesania-rosa-de-maig_99400478617.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 6
+                    name: 'Petit Mercat de Zona Nord'
+                    date_creation: '1996-02-27'
+                    address: 'Carrer de Vallcivera'
+                    address_number: '1'
+                    neighborhood: 'Ciutat Meridiana'
+                    district: 'Nou Barris'
+                    zip_code: '08055'
+                    town: Barcelona
+                    coord_lat: '41.4616720373'
+                    coord_lon: '2.1795141774'
+                    phone: '-'
+                    schedule: 'https://ajuntament.barcelona.cat/es/detall/petit-mercat-zona-nord_99400256451.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 7
+                    name: 'Petit Mercat de Trinitat Nova'
+                    date_creation: '1996-02-27'
+                    address: Chafarinas
+                    address_number: '21'
+                    neighborhood: 'la Trinitat Nova'
+                    district: 'Nou Barris'
+                    zip_code: '08053'
+                    town: Barcelona
+                    coord_lat: '41.4484286607'
+                    coord_lon: '2.1834930021'
+                    phone: null
+                    schedule: 'https://ajuntament.barcelona.cat/es/detall/petit-mercat-trinitat-nova_99400256452.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 8
+                    name: 'Mercat del Vell *Estació de Sants'
+                    date_creation: '1997-10-21'
+                    address: 'Pl Països Catalans'
+                    address_number: '1'
+                    neighborhood: Sants
+                    district: Sants-Montjuïc
+                    zip_code: '08018'
+                    town: Barcelona
+                    coord_lat: '41.3790331169'
+                    coord_lon: '2.1404324382'
+                    phone: '934956401'
+                    schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-del-vell-estacio-de-sants_99400556374.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 9
+                    name: 'Petit Mercat de Canyelles'
+                    date_creation: '1996-12-18'
+                    address: "Carrer d'Antonio Machado"
+                    address_number: '12'
+                    neighborhood: Canyelles
+                    district: 'Nou Barris'
+                    zip_code: '08049'
+                    town: Barcelona
+                    coord_lat: '41.4428163931'
+                    coord_lon: '2.1662470301'
+                    phone: null
+                    schedule: 'https://www.barcelona.cat/casalsdebarri/verdun/es/detail/petit-mercat-de-canyelles_96353173651'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 10
+                    name: 'Fira de Llibre Vell *Plaça de Sarrià'
+                    date_creation: '1997-04-04'
+                    address: 'Pl Sarrià'
+                    address_number: '1'
+                    neighborhood: Sarrià
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08023'
+                    town: Barcelona
+                    coord_lat: '41.4001453287'
+                    coord_lon: '2.1223833128'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/ca/detall/fira-del-llibre-vell-a-la-placa-de-sarria_99400322558.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 11
+                    name: 'Mostra de Pintors, Caricaturistes i Retratistes de les Rambles'
+                    date_creation: '2003-11-11'
+                    address: 'C la Rambla'
+                    address_number: '25'
+                    neighborhood: 'el Raval'
+                    district: 'Ciutat Vella'
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3784426403'
+                    coord_lon: '2.1754345236'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/mostra-de-pintors-caricaturistes-i-retratistes_99400686938.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 12
+                    name: 'Fira Nova Artesania *Rambles'
+                    date_creation: '1995-07-10'
+                    address: 'C la Rambla'
+                    address_number: '1'
+                    neighborhood: 'el Raval'
+                    district: 'Ciutat Vella'
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.376588493'
+                    coord_lon: '2.1762969828'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesania_99400686927.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 13
+                    name: "Fira d'Embotits Artesanals *Plaça de Sarrià"
+                    date_creation: '2008-09-22'
+                    address: 'Pl Sarrià'
+                    address_number: '1'
+                    neighborhood: Sarrià
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08023'
+                    town: Barcelona
+                    coord_lat: '41.4001453287'
+                    coord_lon: '2.1223833128'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-embotits-artesanals_99400159424.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 14
+                    name: "Fira d'Artesans Plaça Sant Agustí Vell"
+                    date_creation: '2003-02-25'
+                    address: 'Pl Sant Agustí Vell'
+                    address_number: '2'
+                    neighborhood: 'Sant Pere, Santa Caterina i la Ribera'
+                    district: 'Ciutat Vella'
+                    zip_code: '08040'
+                    town: Barcelona
+                    coord_lat: '41.3876876274'
+                    coord_lon: '2.1804565857'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans_99400256431.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 15
+                    name: "Fira d'Artesans Nou Barris"
+                    date_creation: '1998-04-06'
+                    address: 'Pg Valldaura'
+                    address_number: '186'
+                    neighborhood: 'la Guineueta'
+                    district: 'Nou Barris'
+                    zip_code: '08048'
+                    town: Barcelona
+                    coord_lat: '41.438652556'
+                    coord_lon: '2.1702455769'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-nou-barris_98096114839.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 16
+                    name: "Fira Espai d'Art  *Av Diagonal"
+                    date_creation: '2015-03-26'
+                    address: 'Avinguda Diagonal'
+                    address_number: '593'
+                    neighborhood: 'les Corts'
+                    district: 'Les Corts'
+                    zip_code: '08019'
+                    town: Barcelona
+                    coord_lat: '41.388802367'
+                    coord_lon: '2.1309090704'
+                    phone: null
+                    schedule: null
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 17
+                    name: 'Mercat Setmanal del Besòs'
+                    date_creation: '1998-06-09'
+                    address: 'C Jaume Huguet'
+                    address_number: '38'
+                    neighborhood: 'el Besòs i el Maresme'
+                    district: 'Sant Martí'
+                    zip_code: '08070'
+                    town: Barcelona
+                    coord_lat: '41.4192321675'
+                    coord_lon: '2.2151291359'
+                    phone: null
+                    schedule: 'https://www.mercatsetmanal.cat'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 18
+                    name: 'Mercat setmanal de la Marina-Zona Franca'
+                    date_creation: '1996-02-27'
+                    address: 'Carrer de la Mare de Déu de Port'
+                    address_number: '115'
+                    neighborhood: 'la Marina del Prat Vermell'
+                    district: Sants-Montjuïc
+                    zip_code: '08012'
+                    town: Barcelona
+                    coord_lat: '41.353298836'
+                    coord_lon: '2.1496265694'
+                    phone: '932914256'
+                    schedule: 'https://ajuntament.barcelona.cat/sants-montjuic/es/el-distrito-y-sus-barrios/sants-badal/agenda/mercat-setmanal-de-la-marina-zona-franca_99400322547'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 19
+                    name: 'Mercat de Numismàtica i Filatèlia *Plaça Reial'
+                    date_creation: '1996-02-27'
+                    address: 'Pl Reial'
+                    address_number: '1'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3800500367'
+                    coord_lon: '2.1748931265'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-numismatica-i-filatelia_99400478611.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 20
+                    name: 'Mercat Encants de Sant Antoni'
+                    date_creation: '1984-12-28'
+                    address: "C Comte d'Urgell"
+                    address_number: '1'
+                    neighborhood: 'Sant Antoni'
+                    district: Eixample
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3813015469'
+                    coord_lon: '2.1634511872'
+                    phone: '934132300'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 21
+                    name: "Fira d'Artesans Moll de Dipòsit"
+                    date_creation: '2006-07-14'
+                    address: 'Pl Pau Vila'
+                    address_number: '1'
+                    neighborhood: 'la Barceloneta'
+                    district: 'Ciutat Vella'
+                    zip_code: '08030'
+                    town: Barcelona
+                    coord_lat: '41.3810655372'
+                    coord_lon: '2.1845353247'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-al-moll-del-diposit-palau-de-mar_99400322607.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 22
+                    name: 'Mercat Encants Barcelona - Fira de Bellcaire'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de los Castillejos'
+                    address_number: '158'
+                    neighborhood: 'el Fort Pienc'
+                    district: Eixample
+                    zip_code: '08050'
+                    town: Barcelona
+                    coord_lat: '41.4010635488'
+                    coord_lon: '2.185669246'
+                    phone: '934132328'
+                    schedule: 'https://encantsbarcelona.com/'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 23
+                    name: 'Mercat de Pins *Pg Lluís Companys'
+                    date_creation: '1995-07-10'
+                    address: 'Pg Lluís Companys'
+                    address_number: '7'
+                    neighborhood: 'Sant Pere, Santa Caterina i la Ribera'
+                    district: 'Ciutat Vella'
+                    zip_code: '08040'
+                    town: Barcelona
+                    coord_lat: '41.3901017354'
+                    coord_lon: '2.1809868387'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-pins-pg-lluis-companys_99400256472.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 24
+                    name: 'Mercat de les Flors *Les Rambles'
+                    date_creation: '1985-03-22'
+                    address: 'C la Rambla'
+                    address_number: '116'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3829864542'
+                    coord_lon: '2.1719482423'
+                    phone: '-'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:20.000000Z'
+                    updated_at: '2024-10-22T16:44:20.000000Z'
+                  -
+                    id: 25
+                    name: 'Fira del Llibre i Filatèlia de Nou Barris'
+                    date_creation: '2000-09-22'
+                    address: 'Pg Valldaura'
+                    address_number: '186'
+                    neighborhood: 'la Guineueta'
+                    district: 'Nou Barris'
+                    zip_code: '08048'
+                    town: Barcelona
+                    coord_lat: '41.438652556'
+                    coord_lon: '2.1702455769'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-del-llibre-i-filatelia-de-nou-barris_99400322524.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 26
+                    name: 'Mercat Dominical de Sant Antoni'
+                    date_creation: '1996-02-27'
+                    address: "C Comte d'Urgell"
+                    address_number: '1'
+                    neighborhood: 'Sant Antoni'
+                    district: Eixample
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3795682194'
+                    coord_lon: '2.1617431158'
+                    phone: '934132300'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 27
+                    name: 'Fira Petit Artesà *Plaça Bonanova'
+                    date_creation: '2008-09-22'
+                    address: 'Pl Bonanova'
+                    address_number: '1'
+                    neighborhood: 'Sant Gervasi - la Bonanova'
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08025'
+                    town: Barcelona
+                    coord_lat: '41.4069745432'
+                    coord_lon: '2.1335393252'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-petit-artesa-a-la-placa-bonanova_99400322611.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 28
+                    name: 'Fira de Brocanters *Plaça Frederic Soler'
+                    date_creation: '2008-09-22'
+                    address: 'Pl Frederic Soler'
+                    address_number: '1'
+                    neighborhood: 'Sant Gervasi - la Bonanova'
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08025'
+                    town: Barcelona
+                    coord_lat: '41.4053118488'
+                    coord_lon: '2.1382352467'
+                    phone: '933171996'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-de-brocanters-a-la-placa-frederic-soler_99400322609.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 29
+                    name: 'Mercat de Pintors de Sant Andreu'
+                    date_creation: '2006-01-16'
+                    address: 'Pl Comerç'
+                    address_number: '1'
+                    neighborhood: 'Sant Andreu'
+                    district: 'Sant Andreu'
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4355662066'
+                    coord_lon: '2.1898444937'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-pintors-de-sant-andreu_99400322600.html'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 30
+                    name: 'Fira del Col·leccionisme de la Zona Nord'
+                    date_creation: '2007-02-05'
+                    address: 'Av Rasos de Peguera'
+                    address_number: '27'
+                    neighborhood: 'Ciutat Meridiana'
+                    district: 'Nou Barris'
+                    zip_code: '08055'
+                    town: Barcelona
+                    coord_lat: '41.4615054827'
+                    coord_lon: '2.1789793052'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-del-col-leccionisme-de-la-zona-nord_99400321443.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 31
+                    name: "Fira d'Artesans de la Terra *Plaça Concòrdia"
+                    date_creation: '2015-03-26'
+                    address: 'Plaça de la Concòrdia'
+                    address_number: '1'
+                    neighborhood: 'les Corts'
+                    district: 'Les Corts'
+                    zip_code: '08019'
+                    town: Barcelona
+                    coord_lat: '41.3868917091'
+                    coord_lon: '2.1320973475'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/en/cursos/detall/fira-d-artesans-de-la-terra-placa-concordia_99400381335.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 32
+                    name: "Fira de Menjar Artesanal  La Dama d'Or *Jardins de Can Bruixa"
+                    date_creation: '2015-03-26'
+                    address: 'Jardins de Can Bruixa'
+                    address_number: '0'
+                    neighborhood: 'les Corts'
+                    district: 'Les Corts'
+                    zip_code: '08019'
+                    town: Barcelona
+                    coord_lat: '41.383619901'
+                    coord_lon: '2.1305497406'
+                    phone: null
+                    schedule: null
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 33
+                    name: 'Fira Tradicional de Productes Naturals de la Plaça Sagrada Família'
+                    date_creation: '1996-04-02'
+                    address: 'Av Gaudí'
+                    address_number: '2'
+                    neighborhood: 'la Sagrada Família'
+                    district: Eixample
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4049393558'
+                    coord_lon: '2.1746018037'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-tradicional-de-productes-naturals-de-la-placa-sagrada-familia_99400300064.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 34
+                    name: 'Fira de Brocanters *Plaça de Sarrià'
+                    date_creation: '1996-04-02'
+                    address: 'Pl Sarrià'
+                    address_number: '1'
+                    neighborhood: Sarrià
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08023'
+                    town: Barcelona
+                    coord_lat: '41.4001453287'
+                    coord_lon: '2.1223833128'
+                    phone: '933171996'
+                    schedule: 'https://guia.barcelona.cat/en/directoris/detall/fira-de-brocanters-a-la-placa-de-sarria_99400322555.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 35
+                    name: "Mercat d'Art Directe *Jardins de Campoamor"
+                    date_creation: '2002-09-10'
+                    address: 'Av Diagonal'
+                    address_number: '615'
+                    neighborhood: 'les Corts'
+                    district: 'Les Corts'
+                    zip_code: '08019'
+                    town: Barcelona
+                    coord_lat: '41.3882699032'
+                    coord_lon: '2.1287823998'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 36
+                    name: 'Fira Brocanters *Moll de les Drassanes'
+                    date_creation: '1997-05-29'
+                    address: 'Moll Drassanes'
+                    address_number: '1'
+                    neighborhood: 'Sant Pere, Santa Caterina i la Ribera'
+                    district: 'Ciutat Vella'
+                    zip_code: '08040'
+                    town: Barcelona
+                    coord_lat: '41.3746514377'
+                    coord_lon: '2.1781153022'
+                    phone: '617077703'
+                    schedule: 'https://portvellbcn.cat/ca/portfolio-item/mercat-de-brocanteria-mercat-de-colom/'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 37
+                    name: 'Fira de Productes Tradicionals Catalans *Plaça del Pi'
+                    date_creation: '2008-03-05'
+                    address: 'Pl Pi'
+                    address_number: '1'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3823267168'
+                    coord_lon: '2.1735761303'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-de-productes-tradicionals-catalans_99400686952.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 38
+                    name: "Fira d'Artesans Rambla Poblenou"
+                    date_creation: '1997-12-18'
+                    address: 'Rbla Poblenou'
+                    address_number: '72'
+                    neighborhood: 'el Poblenou'
+                    district: 'Sant Martí'
+                    zip_code: '08068'
+                    town: Barcelona
+                    coord_lat: '41.4011858725'
+                    coord_lon: '2.2013429232'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-dartesans-a-la-rambla-poblenou_99400478629.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 39
+                    name: "Fira d'Artesans del Clot *Pl Font i Sagué"
+                    date_creation: '1997-12-18'
+                    address: 'Pl Font i Sagué'
+                    address_number: '1'
+                    neighborhood: 'el Clot'
+                    district: 'Sant Martí'
+                    zip_code: '08065'
+                    town: Barcelona
+                    coord_lat: '41.4080626465'
+                    coord_lon: '2.1885166723'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 40
+                    name: "Fira d'Artesania Popular Catalana *Plaça Eivissa"
+                    date_creation: '1997-12-12'
+                    address: 'Pl Eivissa'
+                    address_number: '1'
+                    neighborhood: Horta
+                    district: Horta-Guinardó
+                    zip_code: '08043'
+                    town: Barcelona
+                    coord_lat: '41.4299289496'
+                    coord_lon: '2.1612249433'
+                    phone: null
+                    schedule: 'https://guia.barcelona.cat/es/'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 41
+                    name: "Mostra d'Art *Pl Sant Josep Oriol"
+                    date_creation: '1996-04-01'
+                    address: 'Plaça de Sant Josep Oriol'
+                    address_number: '1'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3825348351'
+                    coord_lon: '2.1739865534'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/mostra-dart_99400159078.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 42
+                    name: 'Mostra de Pintors Afeccionats *Pl Sagrada Família'
+                    date_creation: '1996-04-02'
+                    address: 'Pl Sagrada Família'
+                    address_number: '1'
+                    neighborhood: 'la Sagrada Família'
+                    district: Eixample
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4019739323'
+                    coord_lon: '2.1728272814'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 43
+                    name: "Fira d'Artesans Placeta de l'Oca"
+                    date_creation: '1999-02-26'
+                    address: "Placeta de l'Oca"
+                    address_number: '0'
+                    neighborhood: "el Camp de l'Arpa del Clot"
+                    district: 'Sant Martí'
+                    zip_code: '08064'
+                    town: Barcelona
+                    coord_lat: '41.4087692479'
+                    coord_lon: '2.1850069974'
+                    phone: '-'
+                    schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-placeta-de-l-oca_99057091907.html'
+                    type: fair
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 44
+                    name: 'Mercat Boqueria - Sant Josep'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer la Rambla'
+                    address_number: '89'
+                    neighborhood: 'el Raval'
+                    district: 'Ciutat Vella'
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3820488944'
+                    coord_lon: '2.1722707591'
+                    phone: '934132303'
+                    schedule: 'https://www.boqueria.barcelona'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 45
+                    name: 'Mercat Santa Caterina'
+                    date_creation: '1984-12-28'
+                    address: 'Av Francesc Cambó'
+                    address_number: '16'
+                    neighborhood: 'Sant Pere, Santa Caterina i la Ribera'
+                    district: 'Ciutat Vella'
+                    zip_code: '08040'
+                    town: Barcelona
+                    coord_lat: '41.3863948816'
+                    coord_lon: '2.1781771121'
+                    phone: '934132298'
+                    schedule: 'https://www.mercatsantacaterina.com'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 46
+                    name: 'Mercat Hostafrancs'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de la Creu Coberta'
+                    address_number: '93'
+                    neighborhood: Hostafrancs
+                    district: Sants-Montjuïc
+                    zip_code: '08015'
+                    town: Barcelona
+                    coord_lat: '41.3751623444'
+                    coord_lon: '2.1438539434'
+                    phone: '934132307'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-hostafrancs'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 47
+                    name: 'Mercat Sants'
+                    date_creation: '1984-12-28'
+                    address: 'C Sant Jordi'
+                    address_number: '6'
+                    neighborhood: Sants
+                    district: Sants-Montjuïc
+                    zip_code: '08018'
+                    town: Barcelona
+                    coord_lat: '41.3747414403'
+                    coord_lon: '2.1337546284'
+                    phone: '932694472'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sants'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 48
+                    name: 'Mercat Marina'
+                    date_creation: '1984-12-28'
+                    address: 'Passeig de la Zona Franca'
+                    address_number: '178'
+                    neighborhood: 'la Marina de Port'
+                    district: Sants-Montjuïc
+                    zip_code: '08013'
+                    town: Barcelona
+                    coord_lat: '41.3603802597'
+                    coord_lon: '2.139192953'
+                    phone: '934132308'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-marina'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 49
+                    name: 'Mercat Sant Andreu'
+                    date_creation: '1985-01-17'
+                    address: 'Plaça del Mercadal'
+                    address_number: '41'
+                    neighborhood: 'Sant Andreu'
+                    district: 'Sant Andreu'
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4348931291'
+                    coord_lon: '2.1883934902'
+                    phone: '934132342'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-andreu'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 50
+                    name: 'Mercat Ciutat Meridiana'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Costabona'
+                    address_number: '4'
+                    neighborhood: 'Ciutat Meridiana'
+                    district: 'Nou Barris'
+                    zip_code: '08055'
+                    town: Barcelona
+                    coord_lat: '41.4617173616'
+                    coord_lon: '2.1778115794'
+                    phone: '934132336'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ciutat-meridiana'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 51
+                    name: 'Mercat Guinardó'
+                    date_creation: '1985-01-17'
+                    address: 'C Teodor Llorente'
+                    address_number: '10'
+                    neighborhood: 'el Guinardó'
+                    district: Horta-Guinardó
+                    zip_code: '08035'
+                    town: Barcelona
+                    coord_lat: '41.4191518509'
+                    coord_lon: '2.1797214424'
+                    phone: '934132332'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guinardo'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 52
+                    name: 'Mercat Guineueta'
+                    date_creation: '1985-01-17'
+                    address: 'Passeig de Valldaura'
+                    address_number: '186'
+                    neighborhood: 'la Guineueta'
+                    district: 'Nou Barris'
+                    zip_code: '08048'
+                    town: Barcelona
+                    coord_lat: '41.4386525477'
+                    coord_lon: '2.1702456728'
+                    phone: '934132338'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guineueta'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 53
+                    name: 'Mercat Fort Pienc'
+                    date_creation: '2003-12-03'
+                    address: 'Pl Fort Pienc'
+                    address_number: '3'
+                    neighborhood: 'el Fort Pienc'
+                    district: Eixample
+                    zip_code: '08050'
+                    town: Barcelona
+                    coord_lat: '41.3957735719'
+                    coord_lon: '2.1825410896'
+                    phone: '934132316'
+                    schedule: 'https://mercatdefortpienc.com/'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 54
+                    name: 'Mercat Barceloneta'
+                    date_creation: '1984-12-28'
+                    address: 'Plaça del Poeta Boscà'
+                    address_number: '1'
+                    neighborhood: 'la Barceloneta'
+                    district: 'Ciutat Vella'
+                    zip_code: '08030'
+                    town: Barcelona
+                    coord_lat: '41.380246168'
+                    coord_lon: '2.1892812027'
+                    phone: '934132304'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-barceloneta'
+                    type: market
+                    created_at: '2024-10-22T16:44:21.000000Z'
+                    updated_at: '2024-10-22T16:44:21.000000Z'
+                  -
+                    id: 55
+                    name: 'Mercat Ninot'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de Mallorca'
+                    address_number: '133'
+                    neighborhood: "l'Antiga Esquerra de l'Eixample"
+                    district: Eixample
+                    zip_code: '08080'
+                    town: Barcelona
+                    coord_lat: '41.3878571657'
+                    coord_lon: '2.1544122344'
+                    phone: '934132322'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ninot'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 56
+                    name: 'Mercat Sant Martí'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Puigcerdà'
+                    address_number: '206'
+                    neighborhood: 'la Verneda i la Pau'
+                    district: 'Sant Martí'
+                    zip_code: '08073'
+                    town: Barcelona
+                    coord_lat: '41.4186564811'
+                    coord_lon: '2.2053227926'
+                    phone: '934132297'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-marti'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 57
+                    name: 'Mercat Besòs'
+                    date_creation: '1985-01-17'
+                    address: 'C Jaume Huguet'
+                    address_number: '38'
+                    neighborhood: 'el Besòs i el Maresme'
+                    district: 'Sant Martí'
+                    zip_code: '08070'
+                    town: Barcelona
+                    coord_lat: '41.4192321675'
+                    coord_lon: '2.2151291359'
+                    phone: '934132305'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-besos'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 58
+                    name: 'Mercat Canyelles'
+                    date_creation: '1987-03-26'
+                    address: "Carrer d'Antonio Machado"
+                    address_number: '10'
+                    neighborhood: Canyelles
+                    district: 'Nou Barris'
+                    zip_code: '08049'
+                    town: Barcelona
+                    coord_lat: '41.4419881929'
+                    coord_lon: '2.1644271206'
+                    phone: '934132324'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-canyelles'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 59
+                    name: 'Mercat Sarrià'
+                    date_creation: '1984-12-28'
+                    address: 'Pg Reina Elisenda Montcada'
+                    address_number: '8'
+                    neighborhood: Sarrià
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08023'
+                    town: Barcelona
+                    coord_lat: '41.3998359321'
+                    coord_lon: '2.1207231797'
+                    phone: '934132326'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sarria'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 60
+                    name: 'Mercat Abaceria Central'
+                    date_creation: '1984-12-28'
+                    address: 'Pg Sant Joan'
+                    address_number: '181'
+                    neighborhood: "el Camp d'en Grassot i Gràcia Nova"
+                    district: Gràcia
+                    zip_code: '08032'
+                    town: Barcelona
+                    coord_lat: '41.4031865287'
+                    coord_lon: '2.1641791643'
+                    phone: '934132313'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-abaceria-central'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 61
+                    name: 'Mercat Clot'
+                    date_creation: '1985-01-17'
+                    address: 'Pl Mercat'
+                    address_number: '26'
+                    neighborhood: 'el Clot'
+                    district: 'Sant Martí'
+                    zip_code: '08065'
+                    town: Barcelona
+                    coord_lat: '41.4076169424'
+                    coord_lon: '2.1886443724'
+                    phone: '934132306'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-clot'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 62
+                    name: 'Mercat Poblenou - Unió'
+                    date_creation: '1985-01-17'
+                    address: 'Pl Unió'
+                    address_number: '25'
+                    neighborhood: 'el Poblenou'
+                    district: 'Sant Martí'
+                    zip_code: '08068'
+                    town: Barcelona
+                    coord_lat: '41.4010217485'
+                    coord_lon: '2.2054291964'
+                    phone: '934132309'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-poblenou'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 63
+                    name: 'Mercat Provençals'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Menorca'
+                    address_number: '19'
+                    neighborhood: 'Sant Martí de Provençals'
+                    district: 'Sant Martí'
+                    zip_code: '08072'
+                    town: Barcelona
+                    coord_lat: '41.4194575005'
+                    coord_lon: '2.1964853597'
+                    phone: '662002663'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-provencals'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 64
+                    name: 'Mercat Tres Torres'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer dels Vergós'
+                    address_number: '2'
+                    neighborhood: 'les Tres Torres'
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08024'
+                    town: Barcelona
+                    coord_lat: '41.3999447579'
+                    coord_lon: '2.1312808904'
+                    phone: '934132327'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-tres-torres'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 65
+                    name: 'Mercat Sant Gervasi'
+                    date_creation: '1984-12-28'
+                    address: 'Pl Joaquim Folguera'
+                    address_number: '6'
+                    neighborhood: 'Sant Gervasi - la Bonanova'
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08025'
+                    town: Barcelona
+                    coord_lat: '41.4056633531'
+                    coord_lon: '2.1385455717'
+                    phone: '934132325'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-gervasi'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 66
+                    name: 'Mercat Concepció'
+                    date_creation: '1984-12-28'
+                    address: "Carrer d'Aragó"
+                    address_number: '311'
+                    neighborhood: "la Dreta de l'Eixample"
+                    district: Eixample
+                    zip_code: '08070'
+                    town: Barcelona
+                    coord_lat: '41.3955681595'
+                    coord_lon: '2.1690716483'
+                    phone: '934132314'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-concepcio'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 67
+                    name: 'Mercat Sagrada Família'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de Padilla'
+                    address_number: '255'
+                    neighborhood: 'la Sagrada Família'
+                    district: Eixample
+                    zip_code: '08060'
+                    town: Barcelona
+                    coord_lat: '41.4057184476'
+                    coord_lon: '2.1770294201'
+                    phone: '934132324'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sagrada-familia'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 68
+                    name: 'Mercat Sant Antoni'
+                    date_creation: '1990-06-25'
+                    address: "Carrer del Comte d'Urgell"
+                    address_number: '1'
+                    neighborhood: 'Sant Antoni'
+                    district: Eixample
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3795682194'
+                    coord_lon: '2.1617431158'
+                    phone: '934132300'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-antoni'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 69
+                    name: 'Mercat Les Corts'
+                    date_creation: '1984-12-28'
+                    address: 'Travessera de les Corts'
+                    address_number: '215'
+                    neighborhood: 'les Corts'
+                    district: 'Les Corts'
+                    zip_code: '08019'
+                    town: Barcelona
+                    coord_lat: '41.3840780606'
+                    coord_lon: '2.1298048647'
+                    phone: '667570336'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-les-corts'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 70
+                    name: 'Mercat Galvany'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de Santaló'
+                    address_number: '65'
+                    neighborhood: 'Sant Gervasi - Galvany'
+                    district: 'Sarrià-Sant Gervasi'
+                    zip_code: '08026'
+                    town: Barcelona
+                    coord_lat: '41.3966823914'
+                    coord_lon: '2.1436789434'
+                    phone: '934132317'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-galvany'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 71
+                    name: 'Mercat Llibertat'
+                    date_creation: '1985-01-17'
+                    address: 'Plaça de la Llibertat'
+                    address_number: '27'
+                    neighborhood: 'la Vila de Gràcia'
+                    district: Gràcia
+                    zip_code: '08031'
+                    town: Barcelona
+                    coord_lat: '41.3997378488'
+                    coord_lon: '2.1537484883'
+                    phone: '933687946'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-llibertat'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 72
+                    name: 'Mercat Carmel'
+                    date_creation: '1985-01-17'
+                    address: 'C Llobregós'
+                    address_number: '149'
+                    neighborhood: 'el Carmel'
+                    district: Horta-Guinardó
+                    zip_code: '08037'
+                    town: Barcelona
+                    coord_lat: '41.4237404665'
+                    coord_lon: '2.1558097621'
+                    phone: '934132335'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-carmel'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 73
+                    name: 'Mercat Trinitat'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de la Pedrosa'
+                    address_number: '21'
+                    neighborhood: 'la Trinitat Nova'
+                    district: 'Nou Barris'
+                    zip_code: '08053'
+                    town: Barcelona
+                    coord_lat: '41.4486920275'
+                    coord_lon: '2.1842333444'
+                    phone: '934132343'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-trinitat'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 74
+                    name: 'Mercat Felip II'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Felip II'
+                    address_number: '118'
+                    neighborhood: 'la Sagrera'
+                    district: 'Sant Andreu'
+                    zip_code: '08061'
+                    town: Barcelona
+                    coord_lat: '41.422026112'
+                    coord_lon: '2.1850927221'
+                    phone: '934132337'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-felip-ii'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 75
+                    name: 'Mercat de les Flors *Les Rambles'
+                    date_creation: '1985-03-22'
+                    address: 'C la Rambla'
+                    address_number: '116'
+                    neighborhood: 'el Barri Gòtic'
+                    district: 'Ciutat Vella'
+                    zip_code: '08020'
+                    town: Barcelona
+                    coord_lat: '41.3829864542'
+                    coord_lon: '2.1719482423'
+                    phone: '-'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 76
+                    name: 'Mercat Dominical de Sant Antoni'
+                    date_creation: '1996-02-27'
+                    address: "C Comte d'Urgell"
+                    address_number: '1'
+                    neighborhood: 'Sant Antoni'
+                    district: Eixample
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3795682194'
+                    coord_lon: '2.1617431158'
+                    phone: '934132300'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 77
+                    name: 'Mercat Núria'
+                    date_creation: '2022-07-12'
+                    address: 'Avinguda dels Rasos de Peguera'
+                    address_number: '186'
+                    neighborhood: 'Ciutat Meridiana'
+                    district: 'Nou Barris'
+                    zip_code: '08055'
+                    town: Barcelona
+                    coord_lat: '41.4599520292'
+                    coord_lon: '2.1726367469'
+                    phone: '934132890'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 78
+                    name: 'Mercat Estrella'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Pi i Margall'
+                    address_number: '73'
+                    neighborhood: "el Camp d'en Grassot i Gràcia Nova"
+                    district: Gràcia
+                    zip_code: '08032'
+                    town: Barcelona
+                    coord_lat: '41.4099110949'
+                    coord_lon: '2.1639930826'
+                    phone: '934132315'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:22.000000Z'
+                    updated_at: '2024-10-22T16:44:22.000000Z'
+                  -
+                    id: 79
+                    name: "Mercat Vall d'Hebron -Taxonera"
+                    date_creation: '1985-01-17'
+                    address: "Pg Vall d'Hebron"
+                    address_number: '130'
+                    neighborhood: 'la Teixonera'
+                    district: Horta-Guinardó
+                    zip_code: '08038'
+                    town: Barcelona
+                    coord_lat: '41.4240621731'
+                    coord_lon: '2.1424522802'
+                    phone: '934132344'
+                    schedule: null
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 80
+                    name: 'Mercat Horta'
+                    date_creation: '1985-01-17'
+                    address: 'Carrer de Lisboa'
+                    address_number: '34'
+                    neighborhood: Horta
+                    district: Horta-Guinardó
+                    zip_code: '08043'
+                    town: Barcelona
+                    coord_lat: '41.4292185768'
+                    coord_lon: '2.1573096629'
+                    phone: '934204858'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-horta'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 81
+                    name: 'Mercat Mercè'
+                    date_creation: '1985-01-17'
+                    address: 'Passeig de Fabra i Puig'
+                    address_number: '270'
+                    neighborhood: 'el Turó de la Peira'
+                    district: 'Nou Barris'
+                    zip_code: '08046'
+                    town: Barcelona
+                    coord_lat: '41.4304831349'
+                    coord_lon: '2.1735994954'
+                    phone: '934132340'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-merce'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 82
+                    name: 'Mercat Bon Pastor'
+                    date_creation: '1985-01-17'
+                    address: 'C Sant Adrià'
+                    address_number: '154'
+                    neighborhood: 'el Bon Pastor'
+                    district: 'Sant Andreu'
+                    zip_code: '08059'
+                    town: Barcelona
+                    coord_lat: '41.4360134875'
+                    coord_lon: '2.2061721529'
+                    phone: '934132333'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-bon-pastor'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 83
+                    name: 'Mercat Lesseps'
+                    date_creation: '1984-12-28'
+                    address: 'Carrer de Verdi'
+                    address_number: '200'
+                    neighborhood: 'la Salut'
+                    district: Gràcia
+                    zip_code: '08030'
+                    town: Barcelona
+                    coord_lat: '41.4091323732'
+                    coord_lon: '2.1520583716'
+                    phone: '934132319'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-lesseps'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 84
+                    name: 'Mercat Encants de Sant Antoni'
+                    date_creation: '1984-12-28'
+                    address: "C Comte d'Urgell"
+                    address_number: '1'
+                    neighborhood: 'Sant Antoni'
+                    district: Eixample
+                    zip_code: '08010'
+                    town: Barcelona
+                    coord_lat: '41.3813015469'
+                    coord_lon: '2.1634511872'
+                    phone: '934132300'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+                  -
+                    id: 85
+                    name: 'Mercat Montserrat'
+                    date_creation: '1985-01-17'
+                    address: 'Via Favència'
+                    address_number: '241'
+                    neighborhood: 'les Roquetes'
+                    district: 'Nou Barris'
+                    zip_code: '08050'
+                    town: Barcelona
+                    coord_lat: '41.4463250726'
+                    coord_lon: '2.1787888337'
+                    phone: '934132341'
+                    schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-montserrat'
+                    type: market
+                    created_at: '2024-10-22T16:44:23.000000Z'
+                    updated_at: '2024-10-22T16:44:23.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Almacena un nuevo mercado callejero en la base de datos.'
+      operationId: almacenaUnNuevoMercadoCallejeroEnLaBaseDeDatos
+      description: "Escenarios:\n- 200: Si el mercado se crea exitosamente.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market created successfully\"\n  }\n- 422: Si la validación del request falla (por ejemplo, si falta el campo 'name').\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Validation failed\",\n      \"errors\": {\n          \"name\": [\"El campo name es obligatorio.\"]\n      }\n  }\n- 500: Si ocurre un error interno al intentar crear el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: znawwoqc
+                  nullable: false
+                date_creation:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-10-22T17:23:17'
+                  nullable: false
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: hzzm
+                  nullable: false
+                address_number:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ybdcdxagxnnferirvfwvhekrt
+                  nullable: false
+                neighborhood:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: tkmdtpqwzee
+                  nullable: false
+                district:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: gunmasfl
+                  nullable: false
+                zip_code:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xdhuubxqe
+                  nullable: false
+                town:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xfoctuomhp
+                  nullable: false
+                coord_x:
+                  type: integer
+                  description: 'Must not be greater than 255.'
+                  example: 15
+                  nullable: false
+                coord_y:
+                  type: integer
+                  description: 'Must not be greater than 255.'
+                  example: 15
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: epnxnlgwj
+                  nullable: true
+                schedule:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: ucjav
+                  nullable: true
+                type:
+                  type: string
+                  description: ''
+                  example: molestiae
+                  nullable: false
+              required:
+                - name
+                - date_creation
+                - address
+                - address_number
+                - neighborhood
+                - district
+                - zip_code
+                - town
+                - coord_x
+                - coord_y
+                - type
+      security: []
+  '/api/street_market/{id}':
+    get:
+      summary: 'Muestra un mercado callejero específico.'
+      operationId: muestraUnMercadoCallejeroEspecfico
+      description: "Escenarios:\n- 200: Si el mercado existe y se devuelve correctamente.\n  Ejemplo de respuesta:\n  {\n      \"id\": 1,\n      \"name\": \"Mercado Central\",\n      \"address\": \"Av. Principal 123\",\n      ...\n  }\n- 404: Si el mercado no se encuentra.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market not found\"\n  }\n- 500: Si ocurre un error interno al intentar recuperar el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  id: 1
+                  name: 'Mercat setmanal de  Provençals'
+                  date_creation: '1998-07-06'
+                  address: 'C Menorca'
+                  address_number: '19'
+                  neighborhood: 'Sant Martí de Provençals'
+                  district: 'Sant Martí'
+                  zip_code: '08072'
+                  town: Barcelona
+                  coord_lat: '41.4194585189'
+                  coord_lon: '2.1964867232'
+                  phone: '932916000'
+                  schedule: null
+                  type: market
+                  created_at: '2024-10-22T16:44:20.000000Z'
+                  updated_at: '2024-10-22T16:44:20.000000Z'
                 properties:
-                  message:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
                     type: string
-                    example: Unauthenticated.
+                    example: 'Mercat setmanal de  Provençals'
+                  date_creation:
+                    type: string
+                    example: '1998-07-06'
+                  address:
+                    type: string
+                    example: 'C Menorca'
+                  address_number:
+                    type: string
+                    example: '19'
+                  neighborhood:
+                    type: string
+                    example: 'Sant Martí de Provençals'
+                  district:
+                    type: string
+                    example: 'Sant Martí'
+                  zip_code:
+                    type: string
+                    example: '08072'
+                  town:
+                    type: string
+                    example: Barcelona
+                  coord_lat:
+                    type: string
+                    example: '41.4194585189'
+                  coord_lon:
+                    type: string
+                    example: '2.1964867232'
+                  phone:
+                    type: string
+                    example: '932916000'
+                  schedule:
+                    type: string
+                    example: null
+                  type:
+                    type: string
+                    example: market
+                  created_at:
+                    type: string
+                    example: '2024-10-22T16:44:20.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2024-10-22T16:44:20.000000Z'
       tags:
         - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the street market.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/street_market/import:
+    post:
+      summary: 'Importa datos de mercados callejeros desde un archivo JSON.'
+      operationId: importaDatosDeMercadosCallejerosDesdeUnArchivoJSON
+      description: "Escenarios:\n- 200: Si los datos se importan correctamente.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Dades importades correctament\"\n  }\n- 422: Si la validación del archivo falla (por ejemplo, si no se proporciona un archivo).\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Validation failed\",\n      \"errors\": {\n          \"file\": [\"El archivo es obligatorio.\"]\n      }\n  }\n- 500: Si ocurre un error interno al intentar leer o procesar el archivo.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: 'Must be a file.'
+                  nullable: false
+              required:
+                - file
       security: []
 tags:
   -

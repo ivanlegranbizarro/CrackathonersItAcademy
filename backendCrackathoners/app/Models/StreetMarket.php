@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class StreetMarket extends Model
 {
+    use HasFactory;
 
     protected $guarded = ['id'];
-
-    /** @use HasFactory<\Database\Factories\StreetMarketFactory> */
-    use HasFactory;
+    protected $table = 'street_market';
 }
