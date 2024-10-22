@@ -2,7 +2,14 @@
   font-family: 'Poppins', sans-serif;
   width: 100vw;
   height: auto;
-  --violet: #532D6D;
+  --col-black-green: #00160C;
+  --col-dark-green: #005A32;
+  --col-green: #238B45;
+  --col-light-green: #41AB5D;
+  --col-white-green: #C7E9C0;
+  --col-white: #ffffff;
+  --col-brown: #521d16;
+  --col-red: #e23629;
 }
 
 body {
