@@ -1,6 +1,10 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import styled from "styled-components";
+import L from "leaflet";
+import defaultIconUrl from '../assets/images/geo-location-icon.svg'
+import selectedIconUrl from '../assets/images/geo-location-icon-selected.svg'
+
 
 const mercatsData = [
   {
@@ -53,15 +57,33 @@ const TextStyle = styled.div`
   font-weight: bolder;
 
   @media only screen and (min-width: 601px) {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     margin-block: 50px;
-    border-bottom: 3px solid green;
+    border-bottom: 3px solid #238B45;
     padding-bottom: 20px;
   }
 `;
 
+const defaultIcon = L.icon({
+  iconUrl: defaultIconUrl,
+  iconSize: [65, 81],
+  iconAnchor: [32.5, 81],
+});
+
+const selectedIcon = L.icon({
+  iconUrl: selectedIconUrl,
+  iconSize: [75, 91],
+  iconAnchor: [37.5, 91],
+});
+
+
 export const MapMarkets = () => {
   const [coordinates] = useState([41.3919, 2.1649]);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+
+  const handleMarkerClick = (id) => {
+    setSelectedMarker(id);
+  };
 
   return (
     <MapContainerStyled>
@@ -79,6 +101,10 @@ export const MapMarkets = () => {
           <Marker
             key={marker.id}
             position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
+            icon={selectedMarker === marker.id ? selectedIcon : defaultIcon}
+            eventHandlers={{
+              click: () => handleMarkerClick(marker.id),
+            }}
           >
             <Popup>
               <p>{marker.type}</p>
