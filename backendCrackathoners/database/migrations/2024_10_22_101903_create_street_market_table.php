@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
+
     public function up(): void
     {
         Schema::create('street_market', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->date('date_creation');
             $table->string('address');
             $table->string('address_number');
@@ -22,13 +22,13 @@ return new class extends Migration
             $table->string('coord_x');
             $table->string('coord_y');
             $table->string('phone')->nullable();
-            $table->string('schedule');
-            $table->enum('type',['market', 'fair']);
+            $table->string('schedule')->nullable();
+            $table->enum('type',['market', 'fair'])->nullable();
             $table->timestamps();
         });
     }
 
-    
+
     public function down(): void
     {
         Schema::dropIfExists('street_market');
