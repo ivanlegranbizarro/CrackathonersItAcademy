@@ -2,6 +2,8 @@ import { useState } from "react";
 import Card from "./components/Card/Card";
 import CardDetails from "./components/CardDetails/CardDetails";
 import styled from "styled-components";
+import Navbar from './components/navbar/Navbar'
+
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -29,6 +31,7 @@ function App() {
 
   return (
     <>
+      <Navbar/>
       <main>
         <ContentCards>
           {cardsData.map(card => (
