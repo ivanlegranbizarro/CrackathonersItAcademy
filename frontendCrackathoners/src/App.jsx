@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import Card from "./components/Card/Card";
-import CardDetails from "./components/CardDetails/CardDetails";
+import Card from "../src/components/cards/Card/Card";
+import CardDetails from "../src/components/cards/CardDetails/CardDetails";
 import styled from "styled-components";
 import list from './mocks/ferias.json'
 import Navbar from "./components/navbar/Navbar";
 import SearchBar from "./components/searchbar/SearchBar";
+import { MapMarkets } from "../src/components/map/MapMarkets";
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
             <Navbar />
             <SearchBar isMap={isMap} setIsMap={setIsMap} query={query} setQuery={setQuery}/>
             <main>
-              {isMap ? "Aqui va el mapa" : <ContentCards>
+              {isMap ? <MapMarkets /> : <ContentCards>
                     {filteredCards.map((card) => (
                         <DivCards
                             key={card.id}
