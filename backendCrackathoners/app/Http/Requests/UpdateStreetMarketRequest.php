@@ -30,11 +30,11 @@ class UpdateStreetMarketRequest extends FormRequest
             'district' => ['sometimes', 'string', 'max:255'],
             'zip_code' => ['sometimes', 'string', 'max:255'],
             'town' => ['sometimes', 'string', 'max:255'],
-            'coord_x' => ['sometimes', 'integer', 'max:255'],
-            'coord_y' => ['sometimes', 'integer', 'max:255'],
+            'coord_x' => ['sometimes', 'string', 'max:255'],
+            'coord_y' => ['sometimes', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:255'],
             'schedule' => ['nullable', 'url', 'max:255'],
-            'type' => ['sometimes', 'enum:market,fair'],
+            'type' => ['sometimes', 'in:market,fair'],
         ];
     }
 }
