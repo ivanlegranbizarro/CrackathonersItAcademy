@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 
@@ -11,6 +12,7 @@ const CardContainer = styled.section`
   display: flex;
   flex-direction: column;
   height: 200px; 
+  margin-top: 1rem;
 `;
 
 const CardImage = styled.img`
@@ -41,7 +43,6 @@ const CardTitle = styled.h3`
 `;
 
 const Card = ({card,setCardSelected}) => {
- 
 
   return (
         <CardContainer onClick={()=>setCardSelected(card)}>

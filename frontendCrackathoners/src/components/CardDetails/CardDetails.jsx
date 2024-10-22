@@ -26,7 +26,7 @@ const CardDetailsSection = styled.section`
     overflow: auto;
     position: relative;
     width: 80%;
-    height: 60%;
+    height: auto;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -36,18 +36,28 @@ const CardDetailsSection = styled.section`
 
 const Header = styled.header`
     width: 50%;
+    margin: 10px;
 `;
+
+const Title = styled.h2`
+color: black;
+`
 
 const Aside = styled.aside`
     width: 50%;
     text-align: start;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-evenly;
+
 `;
 
 const Image = styled.img`
     border-radius: 10px;
     margin: 10px;
     max-width: 90%; 
-    height: auto;
+    height: 250px;
     object-fit: cover;
 `;
 
@@ -58,12 +68,12 @@ const CardDetails = ({card,setOpenModal}) => {
             <CardDetailsSection onClick={(e) => e.stopPropagation()}>
                 <Header>
                     <Image src={card.imgSrc} alt="foto_barri" /> 
-                    <h2 className='card-details-name'>Feria</h2>
+                    <Title>{card.title}</Title>
                 </Header>
                 <Aside>
-                    <h2>{card.type}</h2>
-                    <h2>{card.direction}</h2>
-                    <h3>{card.year}</h3>
+                    <div><h2>Tipo:</h2><p>{card.type}</p></div>
+                    <div><h2>Dirección:</h2><p>{card.direction}</p></div>
+                    <div><h2>Año de apertura:</h2><p>{card.year}</p></div>
                 </Aside>
             </CardDetailsSection>       
         </ContentCardDetails>

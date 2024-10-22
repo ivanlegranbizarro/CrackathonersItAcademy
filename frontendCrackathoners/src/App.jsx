@@ -3,17 +3,13 @@ import Card from "./components/Card/Card";
 import CardDetails from "./components/CardDetails/CardDetails";
 import styled from "styled-components";
 import Navbar from './components/navbar/Navbar'
+import list from './mocks/ferias.json'
 
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [cardSelected, setCardSelected] = useState({});
 
-  const cardsData = [
-    { id: 1, title: "Feria 1", type: "Feria", imgSrc: "https://www.abcfinanzas.com.ar/core/uploads/2019/01/feria.jpg", direction: "Calle Rodolfo", year: "1987" },
-    { id: 2, title: "Feria 2", type: "Mercado", imgSrc: "https://www.abcfinanzas.com.ar/core/uploads/2019/01/feria.jpg", direction: "Calle Fausto", year: "2014" },
-    { id: 3, title: "Feria 3", type: "Feria", imgSrc: "https://www.abcfinanzas.com.ar/core/uploads/2019/01/feria.jpg", direction: "Calle Miguel", year: "1998" }
-  ];
 
   const ContentCards = styled.main`
     width: 100%;
@@ -34,7 +30,7 @@ function App() {
       <Navbar/>
       <main>
         <ContentCards>
-          {cardsData.map(card => (
+          {list.map(card => (
             <DivCards key={card.id} onClick={() => {
               setOpenModal(true);
               setCardSelected(card);
