@@ -1,11 +1,12 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import React from "react";
-import MarkerDetailCard from "../components/cards/markerDetailCard/MarkerDetailCard";import styled from "styled-components";
-import L from "leaflet";
-import defaultIconUrl from '../assets/images/geo-location-icon.svg'
-import selectedIconUrl from '../assets/images/geo-location-icon-selected.svg'
+import MarkerDetailCard from "../cards/markerDetailCard/MarkerDetailCard";
+import { MapContainerStyled, TextStyle, MapSection, MainMapSection } from "./MapMarketsStyled"; 
 
+import L from "leaflet";
+import defaultIconUrl from "../../assets/images/geo-location-icon.svg";
+import selectedIconUrl from "../../assets/images/geo-location-icon-selected.svg";
 
 const mercatsData = [
   {
@@ -55,24 +56,6 @@ const mercatsData = [
   },
 ];
 
-const MapContainerStyled = styled.div`
-  width: 85%;
-  margin: 0 auto;
-`;
-
-const TextStyle = styled.div`
-  margin-block: 30px;
-  border-bottom: 2px solid green;
-  padding-bottom: 10px;
-  font-weight: bolder;
-
-  @media only screen and (min-width: 601px) {
-    font-size: 2.5rem;
-    margin-block: 50px;
-    border-bottom: 3px solid #238B45;
-    padding-bottom: 20px;
-  }
-`;
 
 const defaultIcon = L.icon({
   iconUrl: defaultIconUrl,
@@ -86,11 +69,10 @@ const selectedIcon = L.icon({
   iconAnchor: [32.5, 81],
 });
 
-
 export const MapMarkets = () => {
   const [coordinates] = useState([41.3919, 2.1649]);
   const [markerDetailCard, setMarkerDetailCard] = useState({ isOpen: false });
-  const [selectedMarker, setSelectedMarker] = useState(null)
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
   const handleMarkerClick = (marker) => {
     console.log("Marker clicked:", marker.name);
@@ -105,8 +87,11 @@ export const MapMarkets = () => {
   };
 
   return (
+    <MainMapSection>
+    <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
     <MapContainerStyled>
-      <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
+      
+      <MapSection>
       <MapContainer
         center={coordinates}
         zoom={13}
@@ -125,22 +110,29 @@ export const MapMarkets = () => {
                 click: () => handleMarkerClick(marker),
               }}
             />
-            {markerDetailCard.isOpen &&
-              markerDetailCard.selectedMarker?.id === marker.id && (
-                <MarkerDetailCard
-                  isOpen={markerDetailCard.isOpen}
-                  category={marker.type}
-                  name={marker.name}
-                  district={marker.district}
-                  address={marker.adress}
-                  creationDate={marker.date_creation}
-                  link={marker.schedule}
-                  onClose={handleCloseDetailCard}
-                />
-              )}
+            
           </React.Fragment>
         ))}
       </MapContainer>
+
+
+      </MapSection>
+
+      {markerDetailCard.isOpen &&
+              (
+                <MarkerDetailCard
+                isOpen={markerDetailCard.isOpen}
+                category={markerDetailCard.selectedMarker.type}
+                name={markerDetailCard.selectedMarker.name}
+                district={markerDetailCard.selectedMarker.district}
+                address={markerDetailCard.selectedMarker.adress}
+                creationDate={markerDetailCard.selectedMarker.date_creation}
+                link={markerDetailCard.selectedMarker.schedule}
+                onClose={handleCloseDetailCard}
+                />
+      )}
+      
     </MapContainerStyled>
+    </MainMapSection>
   );
 };

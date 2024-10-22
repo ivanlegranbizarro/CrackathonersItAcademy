@@ -1,4 +1,4 @@
-import { MapMarkets } from "./components/MapMarkets.jsx";
+import { MapMarkets } from "../src/components/map/MapMarkets";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
@@ -6,7 +6,6 @@ function App() {
     <>
       <Navbar />
       <MapMarkets />
-      
     </>
   );
 }

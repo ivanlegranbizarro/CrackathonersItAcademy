@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 85%;
+    width: 40%;
     margin: auto;
-    position: fixed;
-    bottom: 0;
+    margin-left: 2rem;
     z-index: 800;
-    height: auto;
+    height: 100%;
     background-color: var(--col-white);
     padding-left: 3rem;
     padding-top: 2rem;
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
     border-radius: 0.625rem;
     opacity: 85%;
+    @media only screen and (max-width: 801px) {
+        width: 80%;
+        bottom: 0;
+        position: fixed;
+        margin: auto;
+        height: auto;
+    }
 `;
 
 export const TitleCardText = styled.p`
