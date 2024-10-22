@@ -6,14 +6,13 @@ use App\Http\Requests\StoreStreetMarketRequest;
 use App\Http\Requests\UpdateStreetMarketRequest;
 use App\Models\StreetMarket;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class StreetMarketController extends Controller
 {
-    public function index() : JsonResponse
+    public function index(): JsonResponse
     {
         $streetMarkets = StreetMarket::all();
-        return response()->json ($streetMarkets);
+        return response()->json($streetMarkets);
     }
 
 
@@ -25,8 +24,8 @@ class StreetMarketController extends Controller
     public function store(StoreStreetMarketRequest $request): JsonResponse
     {
         $data = $request->validated();
-        $streetMarket = StreetMarket::create($data);
-        return response()->json("message: Street Market created successfully", 200);
+        StreetMarket::create($data);
+        return response()->json("message: Street Market created successfully", 201);
     }
 
     public function show(StreetMarket $streetMarket)
@@ -46,10 +45,9 @@ class StreetMarketController extends Controller
         return response()->json("message: Street Market updated successfully", 200);
     }
 
-    public function destroy(StreetMarket $streetMarket) : JsonResponse
+    public function destroy(StreetMarket $streetMarket): JsonResponse
     {
         $streetMarket->delete();
         return response()->json(null, 204);
-
     }
 }

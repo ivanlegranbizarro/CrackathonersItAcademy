@@ -28,7 +28,6 @@ class StreetMarketFactory extends Factory
             $jsonContent = File::get($jsonPath);
             static::$marketData = json_decode($jsonContent, true);
 
-            // Si el JSON es un objeto único, conviértelo en array
             if (!is_array(static::$marketData)) {
                 static::$marketData = [static::$marketData];
             }
@@ -59,7 +58,7 @@ class StreetMarketFactory extends Factory
             'address_number' => $market['address_number'] ?? null,
             'neighborhood' => $market['neighborhood'] ?? null,
             'district' => $market['district'] ?? null,
-            'zip_code' => $market['zip_code'] ?? null,
+            'zip_code' => isset($market['zip_code']) ? str_pad('080' . ltrim($market['zip_code'], '0'), 5, '0', STR_PAD_RIGHT) : null,
             'town' => $market['town'] ?? null,
             'coord_lat' => $market['coord_lat'] ?? null,
             'coord_lon' => $market['coord_lon'] ?? null,
