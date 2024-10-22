@@ -1,5 +1,8 @@
 
 import styled from 'styled-components';
+import market from '../../assets/images/market.png';
+import fair from'../../assets/images/fair.png'
+
 
 
 
@@ -46,7 +49,7 @@ const Card = ({card,setCardSelected}) => {
 
   return (
         <CardContainer onClick={()=>setCardSelected(card)}>
-          <CardImage src='https://www.abcfinanzas.com.ar/core/uploads/2019/01/feria.jpg'/>
+          <CardImage src={card.type==="Mercado"?market:fair}/>
           <CardTag>{card.type}</CardTag>
           <CardTitle>{card.title}</CardTitle>
         </CardContainer>

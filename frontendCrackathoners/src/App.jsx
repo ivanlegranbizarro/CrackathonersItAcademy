@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card/Card";
 import CardDetails from "./components/CardDetails/CardDetails";
 import styled from "styled-components";
@@ -7,8 +7,24 @@ import Navbar from "./components/navbar/Navbar";
 import SearchBar from "./components/searchbar/SearchBar";
 
 function App() {
+
     const [openModal, setOpenModal] = useState(false);
     const [cardSelected, setCardSelected] = useState({});
+    const [isMap,setIsMap]=useState(false);
+    const [query, setQuery] = useState("");
+
+    useEffect(() => {}, [isMap]);
+
+
+    const [filteredCards, setFilteredCards] = useState(list); 
+
+    useEffect(() => {
+        setFilteredCards(filteredList(query)); 
+    }, [query]);
+
+    const filteredList = (query) => {
+        return list.filter(item => item.title.toLowerCase().includes(query.toLowerCase())); 
+    };
 
     const ContentCards = styled.main`
         width: 100%;
@@ -25,11 +41,10 @@ function App() {
     return (
         <>
             <Navbar />
-            {/*MAPA*/}
-            <SearchBar />
+            <SearchBar isMap={isMap} setIsMap={setIsMap} query={query} setQuery={setQuery}/>
             <main>
-                <ContentCards>
-                    {list.map((card) => (
+              {isMap ? "Aqui va el mapa" : <ContentCards>
+                    {filteredCards.map((card) => (
                         <DivCards
                             key={card.id}
                             onClick={() => {
@@ -40,7 +55,8 @@ function App() {
                             <Card card={card} />
                         </DivCards>
                     ))}
-                </ContentCards>
+                </ContentCards>}
+               
 
                 {openModal && (
                     <CardDetails

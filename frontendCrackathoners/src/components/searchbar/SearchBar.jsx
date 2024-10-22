@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 import {
     SubmitIcon,
     Icon,
@@ -10,9 +10,8 @@ import mapIcon from "../../assets/images/map-solid.svg";
 import listIcon from "../../assets/images/list-solid.svg";
 import searchIcon from "../../assets/images/magnifying-glass-solid.svg";
 
-function SearchBar() {
-    const [isMap, setIsMap] = useState(false);
-    const [query, setQuery] = useState("");
+function SearchBar({isMap,setIsMap,query,setQuery}) {
+
 
     // Función de submit que previene comportamiento por defecto
     function handleSubmit(e) {
@@ -25,7 +24,6 @@ function SearchBar() {
         setIsMap(!isMap);
     }
 
-    useEffect(() => {}, [isMap]);
 
     return (
         <>

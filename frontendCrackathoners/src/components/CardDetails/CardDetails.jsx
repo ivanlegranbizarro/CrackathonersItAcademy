@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import market from '../../assets/images/market.png';
+import fair from'../../assets/images/fair.png'
 
 const ContentCardDetails = styled.main`
     position: fixed;
@@ -67,7 +69,7 @@ const CardDetails = ({card,setOpenModal}) => {
             <BlurBackground />
             <CardDetailsSection onClick={(e) => e.stopPropagation()}>
                 <Header>
-                    <Image src={card.imgSrc} alt="foto_barri" /> 
+                    <Image src={card.type==="Mercado"?market:fair} alt="foto_barri" /> 
                     <Title>{card.title}</Title>
                 </Header>
                 <Aside>
