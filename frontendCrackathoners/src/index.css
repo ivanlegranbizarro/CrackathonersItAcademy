@@ -1,26 +1,34 @@
 :root {
-  font-family: 'Poppins', sans-serif;
-  width: 100vw;
-  height: auto;
-  --col-black-green: #00160C;
-  --col-dark-green: #005A32;
-  --col-green: #238B45;
-  --col-light-green: #41AB5D;
-  --col-white-green: #C7E9C0;
-  --col-white: #ffffff;
-  --col-brown: #521d16;
-  --col-red: #e23629;
+    font-family: "Poppins", sans-serif;
+    width: 100vw;
+    height: auto;
+    --col-black-green: #00160c;
+    --col-dark-green: #005a32;
+    --col-green: #238b45;
+    --col-light-green: #41ab5d;
+    --col-white-green: #c7e9c0;
+    --col-white: #ffffff;
+    --col-brown: #521d16;
+    --col-red: #e23629;
+    box-sizing: border-box;
 }
 
 body {
+<<<<<<< HEAD
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
+=======
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+>>>>>>> 00dfb81a041230965ce695ac474bc7f11079668e
 }
 
-main{
-  width: 100%;
-  display: flex;
-  justify-content: center;
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
