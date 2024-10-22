@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'http://localhost:8000'
 paths:
   /api/street_market:
     get:
@@ -38,8 +38,8 @@ paths:
                     phone: '932916000'
                     schedule: null
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 2
                     name: 'Mercat Gòtic Antiguitats *Plaça Nova'
@@ -55,8 +55,8 @@ paths:
                     phone: null
                     schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-gotic-antiguitats-placa-nova_96092125659'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 3
                     name: "Fira del Col·lectiu d'Artesans d'Alimentació *Plaça del Pi"
@@ -72,8 +72,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-del-collectiu-d-artesans-d-alimentacio-placa-del-pi_99400686952.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 4
                     name: "Mostra d'Art *Plaça de Sarrià"
@@ -89,8 +89,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/mostra-d-art-placa-de-sarria_99400159418.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 5
                     name: "Fira d'Artesania Rosa de Maig"
@@ -106,8 +106,8 @@ paths:
                     phone: '-'
                     schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/fira-d-artesania-rosa-de-maig_99400478617.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 6
                     name: 'Petit Mercat de Zona Nord'
@@ -123,8 +123,8 @@ paths:
                     phone: '-'
                     schedule: 'https://ajuntament.barcelona.cat/es/detall/petit-mercat-zona-nord_99400256451.html'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 7
                     name: 'Petit Mercat de Trinitat Nova'
@@ -140,8 +140,8 @@ paths:
                     phone: null
                     schedule: 'https://ajuntament.barcelona.cat/es/detall/petit-mercat-trinitat-nova_99400256452.html'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 8
                     name: 'Mercat del Vell *Estació de Sants'
@@ -157,8 +157,8 @@ paths:
                     phone: '934956401'
                     schedule: 'https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-del-vell-estacio-de-sants_99400556374.html'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 9
                     name: 'Petit Mercat de Canyelles'
@@ -174,8 +174,8 @@ paths:
                     phone: null
                     schedule: 'https://www.barcelona.cat/casalsdebarri/verdun/es/detail/petit-mercat-de-canyelles_96353173651'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 10
                     name: 'Fira de Llibre Vell *Plaça de Sarrià'
@@ -191,8 +191,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/ca/detall/fira-del-llibre-vell-a-la-placa-de-sarria_99400322558.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 11
                     name: 'Mostra de Pintors, Caricaturistes i Retratistes de les Rambles'
@@ -208,8 +208,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/mostra-de-pintors-caricaturistes-i-retratistes_99400686938.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 12
                     name: 'Fira Nova Artesania *Rambles'
@@ -225,8 +225,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesania_99400686927.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 13
                     name: "Fira d'Embotits Artesanals *Plaça de Sarrià"
@@ -242,8 +242,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-embotits-artesanals_99400159424.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 14
                     name: "Fira d'Artesans Plaça Sant Agustí Vell"
@@ -259,8 +259,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans_99400256431.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 15
                     name: "Fira d'Artesans Nou Barris"
@@ -276,8 +276,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-nou-barris_98096114839.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 16
                     name: "Fira Espai d'Art  *Av Diagonal"
@@ -293,8 +293,8 @@ paths:
                     phone: null
                     schedule: null
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 17
                     name: 'Mercat Setmanal del Besòs'
@@ -310,8 +310,8 @@ paths:
                     phone: null
                     schedule: 'https://www.mercatsetmanal.cat'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 18
                     name: 'Mercat setmanal de la Marina-Zona Franca'
@@ -327,8 +327,8 @@ paths:
                     phone: '932914256'
                     schedule: 'https://ajuntament.barcelona.cat/sants-montjuic/es/el-distrito-y-sus-barrios/sants-badal/agenda/mercat-setmanal-de-la-marina-zona-franca_99400322547'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 19
                     name: 'Mercat de Numismàtica i Filatèlia *Plaça Reial'
@@ -344,8 +344,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-numismatica-i-filatelia_99400478611.html'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 20
                     name: 'Mercat Encants de Sant Antoni'
@@ -361,8 +361,8 @@ paths:
                     phone: '934132300'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 21
                     name: "Fira d'Artesans Moll de Dipòsit"
@@ -378,8 +378,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-al-moll-del-diposit-palau-de-mar_99400322607.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 22
                     name: 'Mercat Encants Barcelona - Fira de Bellcaire'
@@ -395,8 +395,8 @@ paths:
                     phone: '934132328'
                     schedule: 'https://encantsbarcelona.com/'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 23
                     name: 'Mercat de Pins *Pg Lluís Companys'
@@ -412,8 +412,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-pins-pg-lluis-companys_99400256472.html'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 24
                     name: 'Mercat de les Flors *Les Rambles'
@@ -429,8 +429,8 @@ paths:
                     phone: '-'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:20.000000Z'
-                    updated_at: '2024-10-22T16:44:20.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 25
                     name: 'Fira del Llibre i Filatèlia de Nou Barris'
@@ -446,8 +446,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-del-llibre-i-filatelia-de-nou-barris_99400322524.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 26
                     name: 'Mercat Dominical de Sant Antoni'
@@ -463,8 +463,8 @@ paths:
                     phone: '934132300'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 27
                     name: 'Fira Petit Artesà *Plaça Bonanova'
@@ -480,8 +480,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-petit-artesa-a-la-placa-bonanova_99400322611.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 28
                     name: 'Fira de Brocanters *Plaça Frederic Soler'
@@ -497,8 +497,8 @@ paths:
                     phone: '933171996'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-de-brocanters-a-la-placa-frederic-soler_99400322609.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 29
                     name: 'Mercat de Pintors de Sant Andreu'
@@ -514,8 +514,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/mercat-de-pintors-de-sant-andreu_99400322600.html'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 30
                     name: 'Fira del Col·leccionisme de la Zona Nord'
@@ -531,8 +531,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-del-col-leccionisme-de-la-zona-nord_99400321443.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 31
                     name: "Fira d'Artesans de la Terra *Plaça Concòrdia"
@@ -548,8 +548,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/en/cursos/detall/fira-d-artesans-de-la-terra-placa-concordia_99400381335.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 32
                     name: "Fira de Menjar Artesanal  La Dama d'Or *Jardins de Can Bruixa"
@@ -565,8 +565,8 @@ paths:
                     phone: null
                     schedule: null
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 33
                     name: 'Fira Tradicional de Productes Naturals de la Plaça Sagrada Família'
@@ -582,8 +582,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-tradicional-de-productes-naturals-de-la-placa-sagrada-familia_99400300064.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 34
                     name: 'Fira de Brocanters *Plaça de Sarrià'
@@ -599,8 +599,8 @@ paths:
                     phone: '933171996'
                     schedule: 'https://guia.barcelona.cat/en/directoris/detall/fira-de-brocanters-a-la-placa-de-sarria_99400322555.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 35
                     name: "Mercat d'Art Directe *Jardins de Campoamor"
@@ -616,8 +616,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 36
                     name: 'Fira Brocanters *Moll de les Drassanes'
@@ -633,8 +633,8 @@ paths:
                     phone: '617077703'
                     schedule: 'https://portvellbcn.cat/ca/portfolio-item/mercat-de-brocanteria-mercat-de-colom/'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 37
                     name: 'Fira de Productes Tradicionals Catalans *Plaça del Pi'
@@ -650,8 +650,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-de-productes-tradicionals-catalans_99400686952.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 38
                     name: "Fira d'Artesans Rambla Poblenou"
@@ -667,8 +667,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-dartesans-a-la-rambla-poblenou_99400478629.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 39
                     name: "Fira d'Artesans del Clot *Pl Font i Sagué"
@@ -684,8 +684,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 40
                     name: "Fira d'Artesania Popular Catalana *Plaça Eivissa"
@@ -701,8 +701,8 @@ paths:
                     phone: null
                     schedule: 'https://guia.barcelona.cat/es/'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 41
                     name: "Mostra d'Art *Pl Sant Josep Oriol"
@@ -718,8 +718,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/mostra-dart_99400159078.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 42
                     name: 'Mostra de Pintors Afeccionats *Pl Sagrada Família'
@@ -735,8 +735,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 43
                     name: "Fira d'Artesans Placeta de l'Oca"
@@ -752,8 +752,8 @@ paths:
                     phone: '-'
                     schedule: 'https://guia.barcelona.cat/es/detall/fira-d-artesans-placeta-de-l-oca_99057091907.html'
                     type: fair
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 44
                     name: 'Mercat Boqueria - Sant Josep'
@@ -769,8 +769,8 @@ paths:
                     phone: '934132303'
                     schedule: 'https://www.boqueria.barcelona'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 45
                     name: 'Mercat Santa Caterina'
@@ -786,8 +786,8 @@ paths:
                     phone: '934132298'
                     schedule: 'https://www.mercatsantacaterina.com'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 46
                     name: 'Mercat Hostafrancs'
@@ -803,8 +803,8 @@ paths:
                     phone: '934132307'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-hostafrancs'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 47
                     name: 'Mercat Sants'
@@ -820,8 +820,8 @@ paths:
                     phone: '932694472'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sants'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 48
                     name: 'Mercat Marina'
@@ -837,8 +837,8 @@ paths:
                     phone: '934132308'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-marina'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 49
                     name: 'Mercat Sant Andreu'
@@ -854,8 +854,8 @@ paths:
                     phone: '934132342'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-andreu'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 50
                     name: 'Mercat Ciutat Meridiana'
@@ -871,8 +871,8 @@ paths:
                     phone: '934132336'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ciutat-meridiana'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 51
                     name: 'Mercat Guinardó'
@@ -888,8 +888,8 @@ paths:
                     phone: '934132332'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guinardo'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 52
                     name: 'Mercat Guineueta'
@@ -905,8 +905,8 @@ paths:
                     phone: '934132338'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guineueta'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 53
                     name: 'Mercat Fort Pienc'
@@ -922,8 +922,8 @@ paths:
                     phone: '934132316'
                     schedule: 'https://mercatdefortpienc.com/'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 54
                     name: 'Mercat Barceloneta'
@@ -939,8 +939,8 @@ paths:
                     phone: '934132304'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-barceloneta'
                     type: market
-                    created_at: '2024-10-22T16:44:21.000000Z'
-                    updated_at: '2024-10-22T16:44:21.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 55
                     name: 'Mercat Ninot'
@@ -956,8 +956,8 @@ paths:
                     phone: '934132322'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ninot'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 56
                     name: 'Mercat Sant Martí'
@@ -973,8 +973,8 @@ paths:
                     phone: '934132297'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-marti'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 57
                     name: 'Mercat Besòs'
@@ -990,8 +990,8 @@ paths:
                     phone: '934132305'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-besos'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 58
                     name: 'Mercat Canyelles'
@@ -1007,8 +1007,8 @@ paths:
                     phone: '934132324'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-canyelles'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 59
                     name: 'Mercat Sarrià'
@@ -1024,8 +1024,8 @@ paths:
                     phone: '934132326'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sarria'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 60
                     name: 'Mercat Abaceria Central'
@@ -1041,8 +1041,8 @@ paths:
                     phone: '934132313'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-abaceria-central'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 61
                     name: 'Mercat Clot'
@@ -1058,8 +1058,8 @@ paths:
                     phone: '934132306'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-clot'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 62
                     name: 'Mercat Poblenou - Unió'
@@ -1075,8 +1075,8 @@ paths:
                     phone: '934132309'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-poblenou'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 63
                     name: 'Mercat Provençals'
@@ -1092,8 +1092,8 @@ paths:
                     phone: '662002663'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-provencals'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 64
                     name: 'Mercat Tres Torres'
@@ -1109,8 +1109,8 @@ paths:
                     phone: '934132327'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-tres-torres'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 65
                     name: 'Mercat Sant Gervasi'
@@ -1126,8 +1126,8 @@ paths:
                     phone: '934132325'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-gervasi'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 66
                     name: 'Mercat Concepció'
@@ -1143,8 +1143,8 @@ paths:
                     phone: '934132314'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-concepcio'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 67
                     name: 'Mercat Sagrada Família'
@@ -1160,8 +1160,8 @@ paths:
                     phone: '934132324'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sagrada-familia'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 68
                     name: 'Mercat Sant Antoni'
@@ -1177,8 +1177,8 @@ paths:
                     phone: '934132300'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-antoni'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 69
                     name: 'Mercat Les Corts'
@@ -1194,8 +1194,8 @@ paths:
                     phone: '667570336'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-les-corts'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 70
                     name: 'Mercat Galvany'
@@ -1211,8 +1211,8 @@ paths:
                     phone: '934132317'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-galvany'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 71
                     name: 'Mercat Llibertat'
@@ -1228,8 +1228,8 @@ paths:
                     phone: '933687946'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-llibertat'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 72
                     name: 'Mercat Carmel'
@@ -1245,8 +1245,8 @@ paths:
                     phone: '934132335'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-carmel'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 73
                     name: 'Mercat Trinitat'
@@ -1262,8 +1262,8 @@ paths:
                     phone: '934132343'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-trinitat'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 74
                     name: 'Mercat Felip II'
@@ -1279,8 +1279,8 @@ paths:
                     phone: '934132337'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-felip-ii'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 75
                     name: 'Mercat de les Flors *Les Rambles'
@@ -1296,8 +1296,8 @@ paths:
                     phone: '-'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 76
                     name: 'Mercat Dominical de Sant Antoni'
@@ -1313,8 +1313,8 @@ paths:
                     phone: '934132300'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 77
                     name: 'Mercat Núria'
@@ -1330,8 +1330,8 @@ paths:
                     phone: '934132890'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 78
                     name: 'Mercat Estrella'
@@ -1347,8 +1347,8 @@ paths:
                     phone: '934132315'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:22.000000Z'
-                    updated_at: '2024-10-22T16:44:22.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 79
                     name: "Mercat Vall d'Hebron -Taxonera"
@@ -1364,8 +1364,8 @@ paths:
                     phone: '934132344'
                     schedule: null
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 80
                     name: 'Mercat Horta'
@@ -1381,8 +1381,8 @@ paths:
                     phone: '934204858'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-horta'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 81
                     name: 'Mercat Mercè'
@@ -1398,8 +1398,8 @@ paths:
                     phone: '934132340'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-merce'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 82
                     name: 'Mercat Bon Pastor'
@@ -1415,8 +1415,8 @@ paths:
                     phone: '934132333'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-bon-pastor'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 83
                     name: 'Mercat Lesseps'
@@ -1432,8 +1432,8 @@ paths:
                     phone: '934132319'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-lesseps'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 84
                     name: 'Mercat Encants de Sant Antoni'
@@ -1449,8 +1449,8 @@ paths:
                     phone: '934132300'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
                   -
                     id: 85
                     name: 'Mercat Montserrat'
@@ -1466,8 +1466,8 @@ paths:
                     phone: '934132341'
                     schedule: 'https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-montserrat'
                     type: market
-                    created_at: '2024-10-22T16:44:23.000000Z'
-                    updated_at: '2024-10-22T16:44:23.000000Z'
+                    created_at: '2024-10-22T20:15:35.000000Z'
+                    updated_at: '2024-10-22T20:15:35.000000Z'
       tags:
         - Endpoints
       security: []
@@ -1489,68 +1489,71 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: znawwoqc
+                  example: ymyddeayfumsrgr
                   nullable: false
                 date_creation:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2024-10-22T17:23:17'
+                  example: '2024-10-22T23:27:44'
                   nullable: false
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: hzzm
+                  example: duxq
                   nullable: false
                 address_number:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ybdcdxagxnnferirvfwvhekrt
+                  example: tbch
                   nullable: false
                 neighborhood:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: tkmdtpqwzee
+                  example: mizoxnolnfjvovaghzbzlf
                   nullable: false
                 district:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: gunmasfl
+                  example: upweqiferl
                   nullable: false
                 zip_code:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xdhuubxqe
+                  example: uhap
                   nullable: false
                 town:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xfoctuomhp
+                  example: grncgcjj
                   nullable: false
-                coord_x:
-                  type: integer
-                  description: 'Must not be greater than 255.'
-                  example: 15
+                coord_lat:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: socgrisnffr
                   nullable: false
-                coord_y:
-                  type: integer
-                  description: 'Must not be greater than 255.'
-                  example: 15
+                coord_lon:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: klkovocoyzlg
                   nullable: false
                 phone:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: epnxnlgwj
+                  example: ddkchtizplbtd
                   nullable: true
                 schedule:
                   type: string
                   description: 'Must be a valid URL. Must not be greater than 255 characters.'
-                  example: ucjav
+                  example: gwjdbncqgmihnclpkzcog
                   nullable: true
                 type:
                   type: string
                   description: ''
-                  example: molestiae
+                  example: market
                   nullable: false
+                  enum:
+                    - market
+                    - fair
               required:
                 - name
                 - date_creation
@@ -1560,8 +1563,8 @@ paths:
                 - district
                 - zip_code
                 - town
-                - coord_x
-                - coord_y
+                - coord_lat
+                - coord_lon
                 - type
       security: []
   '/api/street_market/{id}':
@@ -1592,8 +1595,8 @@ paths:
                   phone: '932916000'
                   schedule: null
                   type: market
-                  created_at: '2024-10-22T16:44:20.000000Z'
-                  updated_at: '2024-10-22T16:44:20.000000Z'
+                  created_at: '2024-10-22T20:15:35.000000Z'
+                  updated_at: '2024-10-22T20:15:35.000000Z'
                 properties:
                   id:
                     type: integer
@@ -1639,10 +1642,103 @@ paths:
                     example: market
                   created_at:
                     type: string
-                    example: '2024-10-22T16:44:20.000000Z'
+                    example: '2024-10-22T20:15:35.000000Z'
                   updated_at:
                     type: string
-                    example: '2024-10-22T16:44:20.000000Z'
+                    example: '2024-10-22T20:15:35.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Actualiza un mercado callejero existente en la base de datos.'
+      operationId: actualizaUnMercadoCallejeroExistenteEnLaBaseDeDatos
+      description: "Escenarios:\n- 200: Si el mercado se actualiza exitosamente.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market updated successfully\"\n  }\n- 404: Si el mercado no se encuentra.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market not found\"\n  }\n- 422: Si la validación del request falla (por ejemplo, si el campo 'name' no es válido).\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Validation failed\",\n      \"errors\": {\n          \"name\": [\"El campo name es obligatorio.\"]\n      }\n  }\n- 500: Si ocurre un error interno al intentar actualizar el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vwbkmzxspenzn
+                  nullable: false
+                date_creation:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-10-22T23:27:44'
+                  nullable: false
+                address:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vkcathuejzxdhdseiaz
+                  nullable: false
+                address_number:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yqhihz
+                  nullable: false
+                neighborhood:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: rfltoowmpqq
+                  nullable: false
+                district:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: begnnhoozeywz
+                  nullable: false
+                zip_code:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: kuypcrljhecutoixgurhyw
+                  nullable: false
+                town:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vjisvxqgojpbfctaoxidbwtj
+                  nullable: false
+                coord_x:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: imb
+                  nullable: false
+                coord_y:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: zpabjawkqvy
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: bpuhxddlanalqxtrnkrwke
+                  nullable: true
+                schedule:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: xol
+                  nullable: true
+                type:
+                  type: string
+                  description: ''
+                  example: fair
+                  nullable: false
+                  enum:
+                    - market
+                    - fair
+      security: []
+    delete:
+      summary: 'Elimina un mercado callejero específico de la base de datos.'
+      operationId: eliminaUnMercadoCallejeroEspecficoDeLaBaseDeDatos
+      description: "Escenarios:\n- 204: Si el mercado se elimina exitosamente (sin contenido que devolver).\n- 404: Si el mercado no se encuentra.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Street Market not found\"\n  }\n- 500: Si ocurre un error interno al intentar eliminar el mercado.\n  Ejemplo de respuesta:\n  {\n      \"message\": \"Error interno del servidor.\"\n  }"
+      parameters: []
+      responses: {  }
       tags:
         - Endpoints
       security: []

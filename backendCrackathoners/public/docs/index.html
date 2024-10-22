@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "http://localhost:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -80,6 +80,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-street_market--id-">
                                 <a href="#endpoints-GETapi-street_market--id-">Muestra un mercado callejero específico.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-street_market--id-">
+                                <a href="#endpoints-PUTapi-street_market--id-">Actualiza un mercado callejero existente en la base de datos.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-street_market--id-">
+                                <a href="#endpoints-DELETEapi-street_market--id-">Elimina un mercado callejero específico de la base de datos.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-street_market-import">
                                 <a href="#endpoints-POSTapi-street_market-import">Importa datos de mercados callejeros desde un archivo JSON.</a>
                             </li>
@@ -103,7 +109,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -142,14 +148,14 @@ Ejemplo de respuesta:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/street_market" \
+    --get "http://localhost:8000/api/street_market" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/street_market"
+    "http://localhost:8000/api/street_market"
 );
 
 const headers = {
@@ -174,7 +180,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-vary: Origin
+access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">[
@@ -193,8 +199,8 @@ vary: Origin
         &quot;phone&quot;: &quot;932916000&quot;,
         &quot;schedule&quot;: null,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 2,
@@ -211,8 +217,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-gotic-antiguitats-placa-nova_96092125659&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
@@ -229,8 +235,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-collectiu-d-artesans-d-alimentacio-placa-del-pi_99400686952.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 4,
@@ -247,8 +253,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-d-art-placa-de-sarria_99400159418.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 5,
@@ -265,8 +271,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/fira-d-artesania-rosa-de-maig_99400478617.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 6,
@@ -283,8 +289,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/es/detall/petit-mercat-zona-nord_99400256451.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 7,
@@ -301,8 +307,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/es/detall/petit-mercat-trinitat-nova_99400256452.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 8,
@@ -319,8 +325,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934956401&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/jovesbarcelona/caaj/es/detail/mercat-del-vell-estacio-de-sants_99400556374.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 9,
@@ -337,8 +343,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://www.barcelona.cat/casalsdebarri/verdun/es/detail/petit-mercat-de-canyelles_96353173651&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 10,
@@ -355,8 +361,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/ca/detall/fira-del-llibre-vell-a-la-placa-de-sarria_99400322558.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 11,
@@ -373,8 +379,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-de-pintors-caricaturistes-i-retratistes_99400686938.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 12,
@@ -391,8 +397,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesania_99400686927.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 13,
@@ -409,8 +415,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-embotits-artesanals_99400159424.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 14,
@@ -427,8 +433,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans_99400256431.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 15,
@@ -445,8 +451,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-nou-barris_98096114839.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 16,
@@ -463,8 +469,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: null,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 17,
@@ -481,8 +487,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://www.mercatsetmanal.cat&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 18,
@@ -499,8 +505,8 @@ vary: Origin
         &quot;phone&quot;: &quot;932914256&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/sants-montjuic/es/el-distrito-y-sus-barrios/sants-badal/agenda/mercat-setmanal-de-la-marina-zona-franca_99400322547&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 19,
@@ -517,8 +523,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-numismatica-i-filatelia_99400478611.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 20,
@@ -535,8 +541,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132300&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 21,
@@ -553,8 +559,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-al-moll-del-diposit-palau-de-mar_99400322607.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 22,
@@ -571,8 +577,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132328&quot;,
         &quot;schedule&quot;: &quot;https://encantsbarcelona.com/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 23,
@@ -589,8 +595,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-pins-pg-lluis-companys_99400256472.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 24,
@@ -607,8 +613,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 25,
@@ -625,8 +631,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-llibre-i-filatelia-de-nou-barris_99400322524.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 26,
@@ -643,8 +649,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132300&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 27,
@@ -661,8 +667,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-petit-artesa-a-la-placa-bonanova_99400322611.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 28,
@@ -679,8 +685,8 @@ vary: Origin
         &quot;phone&quot;: &quot;933171996&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-de-brocanters-a-la-placa-frederic-soler_99400322609.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 29,
@@ -697,8 +703,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mercat-de-pintors-de-sant-andreu_99400322600.html&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 30,
@@ -715,8 +721,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-del-col-leccionisme-de-la-zona-nord_99400321443.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 31,
@@ -733,8 +739,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/en/cursos/detall/fira-d-artesans-de-la-terra-placa-concordia_99400381335.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 32,
@@ -751,8 +757,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: null,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 33,
@@ -769,8 +775,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-tradicional-de-productes-naturals-de-la-placa-sagrada-familia_99400300064.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 34,
@@ -787,8 +793,8 @@ vary: Origin
         &quot;phone&quot;: &quot;933171996&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/en/directoris/detall/fira-de-brocanters-a-la-placa-de-sarria_99400322555.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 35,
@@ -805,8 +811,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 36,
@@ -823,8 +829,8 @@ vary: Origin
         &quot;phone&quot;: &quot;617077703&quot;,
         &quot;schedule&quot;: &quot;https://portvellbcn.cat/ca/portfolio-item/mercat-de-brocanteria-mercat-de-colom/&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 37,
@@ -841,8 +847,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-de-productes-tradicionals-catalans_99400686952.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 38,
@@ -859,8 +865,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-dartesans-a-la-rambla-poblenou_99400478629.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 39,
@@ -877,8 +883,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 40,
@@ -895,8 +901,8 @@ vary: Origin
         &quot;phone&quot;: null,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 41,
@@ -913,8 +919,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/mostra-dart_99400159078.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 42,
@@ -931,8 +937,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 43,
@@ -949,8 +955,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://guia.barcelona.cat/es/detall/fira-d-artesans-placeta-de-l-oca_99057091907.html&quot;,
         &quot;type&quot;: &quot;fair&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 44,
@@ -967,8 +973,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132303&quot;,
         &quot;schedule&quot;: &quot;https://www.boqueria.barcelona&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 45,
@@ -985,8 +991,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132298&quot;,
         &quot;schedule&quot;: &quot;https://www.mercatsantacaterina.com&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 46,
@@ -1003,8 +1009,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132307&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-hostafrancs&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 47,
@@ -1021,8 +1027,8 @@ vary: Origin
         &quot;phone&quot;: &quot;932694472&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sants&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 48,
@@ -1039,8 +1045,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132308&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-marina&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 49,
@@ -1057,8 +1063,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132342&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-andreu&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 50,
@@ -1075,8 +1081,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132336&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ciutat-meridiana&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 51,
@@ -1093,8 +1099,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132332&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guinardo&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 52,
@@ -1111,8 +1117,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132338&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-guineueta&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 53,
@@ -1129,8 +1135,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132316&quot;,
         &quot;schedule&quot;: &quot;https://mercatdefortpienc.com/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 54,
@@ -1147,8 +1153,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132304&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-barceloneta&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:21.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 55,
@@ -1165,8 +1171,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132322&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-ninot&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 56,
@@ -1183,8 +1189,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132297&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-marti&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 57,
@@ -1201,8 +1207,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132305&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-besos&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 58,
@@ -1219,8 +1225,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132324&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-canyelles&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 59,
@@ -1237,8 +1243,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132326&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sarria&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 60,
@@ -1255,8 +1261,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132313&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-abaceria-central&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 61,
@@ -1273,8 +1279,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132306&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-clot&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 62,
@@ -1291,8 +1297,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132309&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-poblenou&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 63,
@@ -1309,8 +1315,8 @@ vary: Origin
         &quot;phone&quot;: &quot;662002663&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-provencals&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 64,
@@ -1327,8 +1333,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132327&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-tres-torres&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 65,
@@ -1345,8 +1351,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132325&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-gervasi&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 66,
@@ -1363,8 +1369,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132314&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-concepcio&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 67,
@@ -1381,8 +1387,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132324&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sagrada-familia&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 68,
@@ -1399,8 +1405,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132300&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-sant-antoni&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 69,
@@ -1417,8 +1423,8 @@ vary: Origin
         &quot;phone&quot;: &quot;667570336&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-les-corts&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 70,
@@ -1435,8 +1441,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132317&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-galvany&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 71,
@@ -1453,8 +1459,8 @@ vary: Origin
         &quot;phone&quot;: &quot;933687946&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-llibertat&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 72,
@@ -1471,8 +1477,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132335&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-carmel&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 73,
@@ -1489,8 +1495,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132343&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-trinitat&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 74,
@@ -1507,8 +1513,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132337&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-felip-ii&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 75,
@@ -1525,8 +1531,8 @@ vary: Origin
         &quot;phone&quot;: &quot;-&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 76,
@@ -1543,8 +1549,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132300&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-dominical-de-sant-antoni&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 77,
@@ -1561,8 +1567,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132890&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 78,
@@ -1579,8 +1585,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132315&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:22.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 79,
@@ -1597,8 +1603,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132344&quot;,
         &quot;schedule&quot;: null,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 80,
@@ -1615,8 +1621,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934204858&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-horta&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 81,
@@ -1633,8 +1639,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132340&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-merce&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 82,
@@ -1651,8 +1657,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132333&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-bon-pastor&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 83,
@@ -1669,8 +1675,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132319&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-lesseps&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 84,
@@ -1687,8 +1693,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132300&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     },
     {
         &quot;id&quot;: 85,
@@ -1705,8 +1711,8 @@ vary: Origin
         &quot;phone&quot;: &quot;934132341&quot;,
         &quot;schedule&quot;: &quot;https://ajuntament.barcelona.cat/mercats/es/mercado/mercat-montserrat&quot;,
         &quot;type&quot;: &quot;market&quot;,
-        &quot;created_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2024-10-22T16:44:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -1815,30 +1821,30 @@ Ejemplo de respuesta:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/street_market" \
+    "http://localhost:8000/api/street_market" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"znawwoqc\",
-    \"date_creation\": \"2024-10-22T17:23:17\",
-    \"address\": \"hzzm\",
-    \"address_number\": \"ybdcdxagxnnferirvfwvhekrt\",
-    \"neighborhood\": \"tkmdtpqwzee\",
-    \"district\": \"gunmasfl\",
-    \"zip_code\": \"xdhuubxqe\",
-    \"town\": \"xfoctuomhp\",
-    \"coord_x\": 15,
-    \"coord_y\": 15,
-    \"phone\": \"epnxnlgwj\",
-    \"schedule\": \"ucjav\",
-    \"type\": \"molestiae\"
+    \"name\": \"ymyddeayfumsrgr\",
+    \"date_creation\": \"2024-10-22T23:27:44\",
+    \"address\": \"duxq\",
+    \"address_number\": \"tbch\",
+    \"neighborhood\": \"mizoxnolnfjvovaghzbzlf\",
+    \"district\": \"upweqiferl\",
+    \"zip_code\": \"uhap\",
+    \"town\": \"grncgcjj\",
+    \"coord_lat\": \"socgrisnffr\",
+    \"coord_lon\": \"klkovocoyzlg\",
+    \"phone\": \"ddkchtizplbtd\",
+    \"schedule\": \"gwjdbncqgmihnclpkzcog\",
+    \"type\": \"market\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/street_market"
+    "http://localhost:8000/api/street_market"
 );
 
 const headers = {
@@ -1847,19 +1853,19 @@ const headers = {
 };
 
 let body = {
-    "name": "znawwoqc",
-    "date_creation": "2024-10-22T17:23:17",
-    "address": "hzzm",
-    "address_number": "ybdcdxagxnnferirvfwvhekrt",
-    "neighborhood": "tkmdtpqwzee",
-    "district": "gunmasfl",
-    "zip_code": "xdhuubxqe",
-    "town": "xfoctuomhp",
-    "coord_x": 15,
-    "coord_y": 15,
-    "phone": "epnxnlgwj",
-    "schedule": "ucjav",
-    "type": "molestiae"
+    "name": "ymyddeayfumsrgr",
+    "date_creation": "2024-10-22T23:27:44",
+    "address": "duxq",
+    "address_number": "tbch",
+    "neighborhood": "mizoxnolnfjvovaghzbzlf",
+    "district": "upweqiferl",
+    "zip_code": "uhap",
+    "town": "grncgcjj",
+    "coord_lat": "socgrisnffr",
+    "coord_lon": "klkovocoyzlg",
+    "phone": "ddkchtizplbtd",
+    "schedule": "gwjdbncqgmihnclpkzcog",
+    "type": "market"
 };
 
 fetch(url, {
@@ -1948,10 +1954,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-street_market"
-               value="znawwoqc"
+               value="ymyddeayfumsrgr"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>znawwoqc</code></p>
+<p>Must not be greater than 255 characters. Example: <code>ymyddeayfumsrgr</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date_creation</code></b>&nbsp;&nbsp;
@@ -1959,10 +1965,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_creation"                data-endpoint="POSTapi-street_market"
-               value="2024-10-22T17:23:17"
+               value="2024-10-22T23:27:44"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2024-10-22T17:23:17</code></p>
+<p>Must be a valid date. Example: <code>2024-10-22T23:27:44</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -1970,10 +1976,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-street_market"
-               value="hzzm"
+               value="duxq"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>hzzm</code></p>
+<p>Must not be greater than 255 characters. Example: <code>duxq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address_number</code></b>&nbsp;&nbsp;
@@ -1981,10 +1987,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address_number"                data-endpoint="POSTapi-street_market"
-               value="ybdcdxagxnnferirvfwvhekrt"
+               value="tbch"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>ybdcdxagxnnferirvfwvhekrt</code></p>
+<p>Must not be greater than 255 characters. Example: <code>tbch</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>neighborhood</code></b>&nbsp;&nbsp;
@@ -1992,10 +1998,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="neighborhood"                data-endpoint="POSTapi-street_market"
-               value="tkmdtpqwzee"
+               value="mizoxnolnfjvovaghzbzlf"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>tkmdtpqwzee</code></p>
+<p>Must not be greater than 255 characters. Example: <code>mizoxnolnfjvovaghzbzlf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>district</code></b>&nbsp;&nbsp;
@@ -2003,10 +2009,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="district"                data-endpoint="POSTapi-street_market"
-               value="gunmasfl"
+               value="upweqiferl"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>gunmasfl</code></p>
+<p>Must not be greater than 255 characters. Example: <code>upweqiferl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>zip_code</code></b>&nbsp;&nbsp;
@@ -2014,10 +2020,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="zip_code"                data-endpoint="POSTapi-street_market"
-               value="xdhuubxqe"
+               value="uhap"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>xdhuubxqe</code></p>
+<p>Must not be greater than 255 characters. Example: <code>uhap</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>town</code></b>&nbsp;&nbsp;
@@ -2025,32 +2031,32 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="town"                data-endpoint="POSTapi-street_market"
-               value="xfoctuomhp"
+               value="grncgcjj"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>xfoctuomhp</code></p>
+<p>Must not be greater than 255 characters. Example: <code>grncgcjj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>coord_x</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+            <b style="line-height: 2;"><code>coord_lat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="coord_x"                data-endpoint="POSTapi-street_market"
-               value="15"
+                <input type="text" style="display: none"
+                              name="coord_lat"                data-endpoint="POSTapi-street_market"
+               value="socgrisnffr"
                data-component="body">
     <br>
-<p>Must not be greater than 255. Example: <code>15</code></p>
+<p>Must not be greater than 255 characters. Example: <code>socgrisnffr</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>coord_y</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+            <b style="line-height: 2;"><code>coord_lon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="coord_y"                data-endpoint="POSTapi-street_market"
-               value="15"
+                <input type="text" style="display: none"
+                              name="coord_lon"                data-endpoint="POSTapi-street_market"
+               value="klkovocoyzlg"
                data-component="body">
     <br>
-<p>Must not be greater than 255. Example: <code>15</code></p>
+<p>Must not be greater than 255 characters. Example: <code>klkovocoyzlg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -2058,10 +2064,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-street_market"
-               value="epnxnlgwj"
+               value="ddkchtizplbtd"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>epnxnlgwj</code></p>
+<p>Must not be greater than 255 characters. Example: <code>ddkchtizplbtd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>schedule</code></b>&nbsp;&nbsp;
@@ -2069,10 +2075,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="schedule"                data-endpoint="POSTapi-street_market"
-               value="ucjav"
+               value="gwjdbncqgmihnclpkzcog"
                data-component="body">
     <br>
-<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>ucjav</code></p>
+<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>gwjdbncqgmihnclpkzcog</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -2080,10 +2086,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-street_market"
-               value="molestiae"
+               value="market"
                data-component="body">
     <br>
-<p>Example: <code>molestiae</code></p>
+<p>Example: <code>market</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>market</code></li> <li><code>fair</code></li></ul>
         </div>
         </form>
 
@@ -2120,14 +2128,14 @@ Ejemplo de respuesta:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/street_market/1" \
+    --get "http://localhost:8000/api/street_market/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/street_market/1"
+    "http://localhost:8000/api/street_market/1"
 );
 
 const headers = {
@@ -2152,7 +2160,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-vary: Origin
+access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2170,8 +2178,8 @@ vary: Origin
     &quot;phone&quot;: &quot;932916000&quot;,
     &quot;schedule&quot;: null,
     &quot;type&quot;: &quot;market&quot;,
-    &quot;created_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2024-10-22T16:44:20.000000Z&quot;
+    &quot;created_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2024-10-22T20:15:35.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -2258,6 +2266,467 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="endpoints-PUTapi-street_market--id-">Actualiza un mercado callejero existente en la base de datos.</h2>
+
+<p>
+</p>
+
+<p>Escenarios:</p>
+<ul>
+<li>200: Si el mercado se actualiza exitosamente.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Street Market updated successfully&quot;
+}</li>
+<li>404: Si el mercado no se encuentra.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Street Market not found&quot;
+}</li>
+<li>422: Si la validación del request falla (por ejemplo, si el campo 'name' no es válido).
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Validation failed&quot;,
+&quot;errors&quot;: {
+&quot;name&quot;: [&quot;El campo name es obligatorio.&quot;]
+}
+}</li>
+<li>500: Si ocurre un error interno al intentar actualizar el mercado.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Error interno del servidor.&quot;
+}</li>
+</ul>
+
+<span id="example-requests-PUTapi-street_market--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/street_market/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"vwbkmzxspenzn\",
+    \"date_creation\": \"2024-10-22T23:27:44\",
+    \"address\": \"vkcathuejzxdhdseiaz\",
+    \"address_number\": \"yqhihz\",
+    \"neighborhood\": \"rfltoowmpqq\",
+    \"district\": \"begnnhoozeywz\",
+    \"zip_code\": \"kuypcrljhecutoixgurhyw\",
+    \"town\": \"vjisvxqgojpbfctaoxidbwtj\",
+    \"coord_x\": \"imb\",
+    \"coord_y\": \"zpabjawkqvy\",
+    \"phone\": \"bpuhxddlanalqxtrnkrwke\",
+    \"schedule\": \"xol\",
+    \"type\": \"fair\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/street_market/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "vwbkmzxspenzn",
+    "date_creation": "2024-10-22T23:27:44",
+    "address": "vkcathuejzxdhdseiaz",
+    "address_number": "yqhihz",
+    "neighborhood": "rfltoowmpqq",
+    "district": "begnnhoozeywz",
+    "zip_code": "kuypcrljhecutoixgurhyw",
+    "town": "vjisvxqgojpbfctaoxidbwtj",
+    "coord_x": "imb",
+    "coord_y": "zpabjawkqvy",
+    "phone": "bpuhxddlanalqxtrnkrwke",
+    "schedule": "xol",
+    "type": "fair"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-street_market--id-">
+</span>
+<span id="execution-results-PUTapi-street_market--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-street_market--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-street_market--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-street_market--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-street_market--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-street_market--id-" data-method="PUT"
+      data-path="api/street_market/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-street_market--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-street_market--id-"
+                    onclick="tryItOut('PUTapi-street_market--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-street_market--id-"
+                    onclick="cancelTryOut('PUTapi-street_market--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-street_market--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/street_market/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/street_market/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-street_market--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-street_market--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-street_market--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the street market. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-street_market--id-"
+               value="vwbkmzxspenzn"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>vwbkmzxspenzn</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_creation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="date_creation"                data-endpoint="PUTapi-street_market--id-"
+               value="2024-10-22T23:27:44"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-10-22T23:27:44</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="PUTapi-street_market--id-"
+               value="vkcathuejzxdhdseiaz"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>vkcathuejzxdhdseiaz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address_number"                data-endpoint="PUTapi-street_market--id-"
+               value="yqhihz"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>yqhihz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>neighborhood</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="neighborhood"                data-endpoint="PUTapi-street_market--id-"
+               value="rfltoowmpqq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>rfltoowmpqq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>district</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="district"                data-endpoint="PUTapi-street_market--id-"
+               value="begnnhoozeywz"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>begnnhoozeywz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>zip_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="zip_code"                data-endpoint="PUTapi-street_market--id-"
+               value="kuypcrljhecutoixgurhyw"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>kuypcrljhecutoixgurhyw</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>town</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="town"                data-endpoint="PUTapi-street_market--id-"
+               value="vjisvxqgojpbfctaoxidbwtj"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>vjisvxqgojpbfctaoxidbwtj</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coord_x</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="coord_x"                data-endpoint="PUTapi-street_market--id-"
+               value="imb"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>imb</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coord_y</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="coord_y"                data-endpoint="PUTapi-street_market--id-"
+               value="zpabjawkqvy"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>zpabjawkqvy</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="PUTapi-street_market--id-"
+               value="bpuhxddlanalqxtrnkrwke"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>bpuhxddlanalqxtrnkrwke</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>schedule</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="schedule"                data-endpoint="PUTapi-street_market--id-"
+               value="xol"
+               data-component="body">
+    <br>
+<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>xol</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="PUTapi-street_market--id-"
+               value="fair"
+               data-component="body">
+    <br>
+<p>Example: <code>fair</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>market</code></li> <li><code>fair</code></li></ul>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-street_market--id-">Elimina un mercado callejero específico de la base de datos.</h2>
+
+<p>
+</p>
+
+<p>Escenarios:</p>
+<ul>
+<li>204: Si el mercado se elimina exitosamente (sin contenido que devolver).</li>
+<li>404: Si el mercado no se encuentra.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Street Market not found&quot;
+}</li>
+<li>500: Si ocurre un error interno al intentar eliminar el mercado.
+Ejemplo de respuesta:
+{
+&quot;message&quot;: &quot;Error interno del servidor.&quot;
+}</li>
+</ul>
+
+<span id="example-requests-DELETEapi-street_market--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/street_market/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/street_market/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-street_market--id-">
+</span>
+<span id="execution-results-DELETEapi-street_market--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-street_market--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-street_market--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-street_market--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-street_market--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-street_market--id-" data-method="DELETE"
+      data-path="api/street_market/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-street_market--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-street_market--id-"
+                    onclick="tryItOut('DELETEapi-street_market--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-street_market--id-"
+                    onclick="cancelTryOut('DELETEapi-street_market--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-street_market--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/street_market/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-street_market--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-street_market--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-street_market--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the street market. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="endpoints-POSTapi-street_market-import">Importa datos de mercados callejeros desde un archivo JSON.</h2>
 
 <p>
@@ -2291,15 +2760,15 @@ Ejemplo de respuesta:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/street_market/import" \
+    "http://localhost:8000/api/street_market/import" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "file=@C:\Users\formacio\AppData\Local\Temp\php8BD2.tmp" </code></pre></div>
+    --form "file=@/tmp/phpQ55lD1" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/street_market/import"
+    "http://localhost:8000/api/street_market/import"
 );
 
 const headers = {
@@ -2399,7 +2868,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\formacio\AppData\Local\Temp\php8BD2.tmp</code></p>
+<p>Must be a file. Example: <code>/tmp/phpQ55lD1</code></p>
         </div>
         </form>
 
