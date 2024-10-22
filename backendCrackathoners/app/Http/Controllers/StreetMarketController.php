@@ -134,7 +134,7 @@ class StreetMarketController extends Controller
     {
         $data = $request->validated();
         $streetMarket->update($data);
-        return response()->json("message: Street Market updated successfully", 200);
+        return response()->json(["message" => " Street Market updated successfully"], 200);
     }
 
     /**
