@@ -14,12 +14,12 @@ class IndexStreetMarketTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        StreetMarket::factory()->count(3)->create();
     }
 
     public function testCanInstantiateStreetMarketController()
     {
         $this->assertInstanceOf(StreetMarketController::class, new StreetMarketController());
-        StreetMarket::factory()->count(3)->create();
     }
 
     public function testCanGetAllStreetMarkets()
