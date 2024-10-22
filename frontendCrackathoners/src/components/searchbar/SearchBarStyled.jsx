@@ -29,7 +29,7 @@ export const Icon = styled.img`
 `;
 
 export const SearchForm = styled.form`
-    position: absolute;
+    position: fixed;
     margin-bottom: 15px;
     bottom: 0;
     left: 0;
