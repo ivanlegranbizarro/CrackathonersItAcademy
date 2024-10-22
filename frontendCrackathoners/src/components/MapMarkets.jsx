@@ -47,13 +47,14 @@ const MapContainerStyled = styled.div`
 `;
 
 const TextStyle = styled.div`
-  margin-block: 40px;
+  margin-block: 30px;
   border-bottom: 2px solid green;
   padding-bottom: 10px;
   font-weight: bolder;
 
   @media only screen and (min-width: 601px) {
     font-size: 2.5rem; 
+    margin-block: 50px;
     border-bottom: 3px solid green;
     padding-bottom: 20px;
   }
