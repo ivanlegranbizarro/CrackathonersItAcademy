@@ -1,0 +1,13 @@
+:root {
+  font-family: "Marianina FY Regular";
+  width: 100vw;
+  height: auto;
+  --violet: #532D6D;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
