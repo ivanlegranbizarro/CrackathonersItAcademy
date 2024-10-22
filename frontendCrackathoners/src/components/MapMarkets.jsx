@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 const mercatsData = [
   {
@@ -55,11 +54,20 @@ const MapContainerStyled = styled.div`
   }
 `;
 
+const TextStyle = styled.div`
+  font-size: 2.5rem;
+  margin-block: 60px;
+  border-bottom: 3px solid green;
+  padding-bottom: 20px;
+  font-weight: bolder;
+`;
+
 export const MapMarkets = () => {
   const [coordinates] = useState([41.3919, 2.1649]);
 
   return (
     <MapContainerStyled>
+      <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
       <MapContainer
         center={coordinates}
         zoom={13}
