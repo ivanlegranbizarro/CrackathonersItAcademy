@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\StreetMarket;
+use App\Http\Controllers\StreetMarketController;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('streetmarket', StreetMarket::class)->only(['index', 'show']);
+Route::apiResource('street_market', StreetMarketController::class)->only(['index', 'show']);
