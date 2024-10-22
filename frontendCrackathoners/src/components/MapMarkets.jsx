@@ -1,7 +1,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
-import MarkerDetailCard from "../components/cards/markerDetailCard/MarkerDetailCard";
+import MarkerDetailCard from "../components/cards/markerDetailCard/MarkerDetailCard";import styled from "styled-components";
+import L from "leaflet";
+import defaultIconUrl from '../assets/images/geo-location-icon.svg'
+import selectedIconUrl from '../assets/images/geo-location-icon-selected.svg'
+
 
 const mercatsData = [
   {
@@ -30,6 +34,7 @@ const mercatsData = [
     id: 3,
     name: "Feria 3",
     coord_lat: "41.382326716787425",
+    coord_lat: "41.382326716787425",
     coord_lon: "2.173576130337292",
     type: "mercat",
     district: "Sant Gervasi",
@@ -50,6 +55,38 @@ const mercatsData = [
   },
 ];
 
+const MapContainerStyled = styled.div`
+  width: 85%;
+  margin: 0 auto;
+`;
+
+const TextStyle = styled.div`
+  margin-block: 30px;
+  border-bottom: 2px solid green;
+  padding-bottom: 10px;
+  font-weight: bolder;
+
+  @media only screen and (min-width: 601px) {
+    font-size: 2.5rem;
+    margin-block: 50px;
+    border-bottom: 3px solid #238B45;
+    padding-bottom: 20px;
+  }
+`;
+
+const defaultIcon = L.icon({
+  iconUrl: defaultIconUrl,
+  iconSize: [65, 81],
+  iconAnchor: [32.5, 81],
+});
+
+const selectedIcon = L.icon({
+  iconUrl: selectedIconUrl,
+  iconSize: [75, 91],
+  iconAnchor: [37.5, 91],
+});
+
+
 export const MapMarkets = () => {
   const [coordinates] = useState([41.3919, 2.1649]);
   const [markerDetailCard, setMarkerDetailCard] = useState({ isOpen: false });
@@ -57,6 +94,7 @@ export const MapMarkets = () => {
 
   const handleMarkerClick = (marker) => {
     console.log("Marker clicked:", marker.name);
+    setSelectedMarker(marker);
     setMarkerDetailCard({
       isOpen: true,
       selectedMarker: marker,
@@ -67,7 +105,8 @@ export const MapMarkets = () => {
   };
 
   return (
-    <div style={{ margin: "50px" }}>
+    <MapContainerStyled>
+      <TextStyle>Mapa interactiu per als comerços locals</TextStyle>
       <MapContainer
         center={coordinates}
         zoom={13}
@@ -81,6 +120,7 @@ export const MapMarkets = () => {
           <React.Fragment key={marker.id}>
             <Marker
               position={[Number(marker.coord_lat), Number(marker.coord_lon)]}
+              icon={selectedMarker === marker.id ? selectedIcon : defaultIcon}
               eventHandlers={{
                 click: () => handleMarkerClick(marker),
               }}
@@ -101,6 +141,6 @@ export const MapMarkets = () => {
           </React.Fragment>
         ))}
       </MapContainer>
-    </div>
+    </MapContainerStyled>
   );
 };

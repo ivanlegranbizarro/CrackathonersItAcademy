@@ -1,12 +1,10 @@
 import { MapMarkets } from "./components/MapMarkets.jsx";
-
-import Navbar from './components/navbar/Navbar'
-
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <MapMarkets />
       
     </>
