@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Card from "./components/Card/Card";
-import CardDetails from "./components/CardDetails/CardDetails";
+import Card from "../src/components/cards/Card/Card";
+import CardDetails from "../src/components/cards/CardDetails/CardDetails";
 import styled from "styled-components";
 import list from './mocks/ferias.json'
 import Navbar from "./components/navbar/Navbar";

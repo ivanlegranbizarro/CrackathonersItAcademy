@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
-import market from '../../assets/images/market.png';
-import fair from'../../assets/images/fair.png'
+import market from '../../../assets/images/market.png';
+import fair from'../../../assets/images/fair.png'
 
 
 
