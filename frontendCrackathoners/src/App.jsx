@@ -6,6 +6,7 @@ import list from './mocks/ferias.json'
 import Navbar from "./components/navbar/Navbar";
 import SearchBar from "./components/searchbar/SearchBar";
 import { MapMarkets } from "../src/components/map/MapMarkets";
+import useApi from "./services/useApi";
 
 function App() {
 
@@ -13,11 +14,9 @@ function App() {
     const [cardSelected, setCardSelected] = useState({});
     const [isMap,setIsMap]=useState(false);
     const [query, setQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState(list); 
 
     useEffect(() => {}, [isMap]);
-
-
-    const [filteredCards, setFilteredCards] = useState(list); 
 
     useEffect(() => {
         setFilteredCards(filteredList(query)); 
@@ -26,6 +25,9 @@ function App() {
     const filteredList = (query) => {
         return list.filter(item => item.title.toLowerCase().includes(query.toLowerCase())); 
     };
+
+    const {mercatsData, error} = useApi("https://zesty-nurturing-production.up.railway.app/api/street_market")
+    console.log(mercatsData)
 
     const ContentCards = styled.main`
         width: 100%;
